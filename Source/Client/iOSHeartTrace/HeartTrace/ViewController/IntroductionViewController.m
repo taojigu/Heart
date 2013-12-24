@@ -10,9 +10,16 @@
 
 @interface IntroductionViewController ()
 
+@property(nonatomic,retain)NSArray*imageArray;
+
+-(IBAction)finishIntroduction:(id)sender;
+
 @end
 
 @implementation IntroductionViewController
+
+@synthesize imageArray;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +28,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)dealloc{
+    [self.imageArray release];
+    [super dealloc];
 }
 
 - (void)viewDidLoad
@@ -33,6 +45,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -- action messages
+-(IBAction)finishIntroduction:(id)sender{
+    if (nil!=self.delegate&&[self.delegate respondsToSelector:@selector(introductionDidFinish:)]) {
+        [self.delegate introductionDidFinish:self];
+    }
 }
 
 @end

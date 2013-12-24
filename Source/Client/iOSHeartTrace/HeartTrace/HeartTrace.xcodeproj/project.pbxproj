@@ -12,6 +12,14 @@
 		CEA1BC651864491D00C659DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC641864491D00C659DA /* SystemConfiguration.framework */; };
 		CEA1BC671864492200C659DA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC661864492200C659DA /* CFNetwork.framework */; };
 		CEA1BC691864492A00C659DA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC681864492A00C659DA /* libz.dylib */; };
+		CEB463761867DE7B00452BD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEB463781867DE7B00452BD2 /* Localizable.strings */; };
+		CEB4638118680EC900452BD2 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4637F18680EC900452BD2 /* IntroductionViewController.m */; };
+		CEB4638218680EC900452BD2 /* IntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4638018680EC900452BD2 /* IntroductionViewController.xib */; };
+		CEB4638B18681D8D00452BD2 /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4638918681D8D00452BD2 /* BrowseViewController.m */; };
+		CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */; };
+		CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4638E18681DEA00452BD2 /* AccoutViewController.m */; };
+		CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB463911868355C00452BD2 /* WishWallTableViewController.m */; };
+		CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB463921868355C00452BD2 /* WishWallTableViewController.xib */; };
 		CEF5D547186447A1005E4859 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D546186447A1005E4859 /* UIKit.framework */; };
 		CEF5D549186447A1005E4859 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D548186447A1005E4859 /* Foundation.framework */; };
 		CEF5D54B186447A1005E4859 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D54A186447A1005E4859 /* CoreGraphics.framework */; };
@@ -69,6 +77,21 @@
 		CEA1BC681864492A00C659DA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEA1BC6B18644BC100C659DA /* ConstConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstConfigure.h; path = Configure/ConstConfigure.h; sourceTree = "<group>"; };
 		CEA1BC6E186450DA00C659DA /* DefaultValueConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultValueConfigure.h; path = Configure/DefaultValueConfigure.h; sourceTree = "<group>"; };
+		CEB463721867DD0F00452BD2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		CEB463731867DD0F00452BD2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		CEB463771867DE7B00452BD2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CEB463791867DEB800452BD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CEB4637E18680EC900452BD2 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroductionViewController.h; path = ViewController/IntroductionViewController.h; sourceTree = "<group>"; };
+		CEB4637F18680EC900452BD2 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroductionViewController.m; path = ViewController/IntroductionViewController.m; sourceTree = "<group>"; };
+		CEB4638018680EC900452BD2 /* IntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IntroductionViewController.xib; path = ViewController/IntroductionViewController.xib; sourceTree = "<group>"; };
+		CEB4638818681D8D00452BD2 /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseViewController.h; path = ViewController/BrowseViewController.h; sourceTree = "<group>"; };
+		CEB4638918681D8D00452BD2 /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseViewController.m; path = ViewController/BrowseViewController.m; sourceTree = "<group>"; };
+		CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BrowseViewController.xib; path = ViewController/BrowseViewController.xib; sourceTree = "<group>"; };
+		CEB4638D18681DEA00452BD2 /* AccoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccoutViewController.h; path = ViewController/AccoutViewController.h; sourceTree = "<group>"; };
+		CEB4638E18681DEA00452BD2 /* AccoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccoutViewController.m; path = ViewController/AccoutViewController.m; sourceTree = "<group>"; };
+		CEB463901868355C00452BD2 /* WishWallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishWallTableViewController.h; path = ViewController/WishWallTableViewController.h; sourceTree = "<group>"; };
+		CEB463911868355C00452BD2 /* WishWallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishWallTableViewController.m; path = ViewController/WishWallTableViewController.m; sourceTree = "<group>"; };
+		CEB463921868355C00452BD2 /* WishWallTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishWallTableViewController.xib; path = ViewController/WishWallTableViewController.xib; sourceTree = "<group>"; };
 		CEF5D543186447A1005E4859 /* HeartTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5D546186447A1005E4859 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF5D548186447A1005E4859 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,9 +202,28 @@
 			name = Conifgure;
 			sourceTree = "<group>";
 		};
+		CEA1BC71186461C700C659DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEB4637E18680EC900452BD2 /* IntroductionViewController.h */,
+				CEB4637F18680EC900452BD2 /* IntroductionViewController.m */,
+				CEB4638018680EC900452BD2 /* IntroductionViewController.xib */,
+				CEB4638818681D8D00452BD2 /* BrowseViewController.h */,
+				CEB4638918681D8D00452BD2 /* BrowseViewController.m */,
+				CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */,
+				CEB4638D18681DEA00452BD2 /* AccoutViewController.h */,
+				CEB4638E18681DEA00452BD2 /* AccoutViewController.m */,
+				CEB463901868355C00452BD2 /* WishWallTableViewController.h */,
+				CEB463911868355C00452BD2 /* WishWallTableViewController.m */,
+				CEB463921868355C00452BD2 /* WishWallTableViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		CEF5D53A186447A1005E4859 = {
 			isa = PBXGroup;
 			children = (
+				CEA1BC71186461C700C659DA /* ViewController */,
 				CEA1BC6A18644B8C00C659DA /* Conifgure */,
 				CEF5D54C186447A1005E4859 /* HeartTrace */,
 				CEF5D56A186447A1005E4859 /* HeartTraceTests */,
@@ -236,6 +278,7 @@
 				CEF5D558186447A1005E4859 /* Default.png */,
 				CEF5D55A186447A1005E4859 /* Default@2x.png */,
 				CEF5D55C186447A1005E4859 /* Default-568h@2x.png */,
+				CEB463781867DE7B00452BD2 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -428,6 +471,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = CEF5D53A186447A1005E4859;
 			productRefGroup = CEF5D544186447A1005E4859 /* Products */;
@@ -449,6 +493,10 @@
 				CEF5D559186447A1005E4859 /* Default.png in Resources */,
 				CEF5D55B186447A1005E4859 /* Default@2x.png in Resources */,
 				CEF5D55D186447A1005E4859 /* Default-568h@2x.png in Resources */,
+				CEB463761867DE7B00452BD2 /* Localizable.strings in Resources */,
+				CEB4638218680EC900452BD2 /* IntroductionViewController.xib in Resources */,
+				CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */,
+				CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +556,10 @@
 				CEF5D61C1864482E005E4859 /* ASIS3Request.m in Sources */,
 				CEF5D61D1864482E005E4859 /* ASIS3ServiceRequest.m in Sources */,
 				CEF5D61E1864482E005E4859 /* Reachability.m in Sources */,
+				CEB4638118680EC900452BD2 /* IntroductionViewController.m in Sources */,
+				CEB4638B18681D8D00452BD2 /* BrowseViewController.m in Sources */,
+				CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */,
+				CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,10 +582,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CEB463781867DE7B00452BD2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEB463771867DE7B00452BD2 /* zh-Hans */,
+				CEB463791867DEB800452BD2 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		CEF5D54F186447A1005E4859 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEF5D550186447A1005E4859 /* en */,
+				CEB463721867DD0F00452BD2 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -542,6 +604,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEF5D56E186447A1005E4859 /* en */,
+				CEB463731867DD0F00452BD2 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
