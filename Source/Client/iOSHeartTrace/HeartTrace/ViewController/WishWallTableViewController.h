@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WishWallTableViewController : UITableViewController
+@protocol ASIHTTPRequestDelegate;
+
+
+@interface WishWallTableViewController : UITableViewController<ASIHTTPRequestDelegate>
 
 @end

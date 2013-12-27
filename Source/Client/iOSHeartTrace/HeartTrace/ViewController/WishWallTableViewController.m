@@ -7,12 +7,31 @@
 //
 
 #import "WishWallTableViewController.h"
+#import "ASIHTTPRequest.h"
+#import "RequestURLUtility.h"
+#import "ElementsContainer.h"
+#import "Wish.h"
+#import "WishPageParser.h"
+#import "WishTableViewCell.h"
 
-@interface WishWallTableViewController ()
 
+
+@interface WishWallTableViewController (){
+    @private
+    IBOutlet UIView*loadingView;
+    
+}
+
+@property(nonatomic,retain)ElementsContainer*wishPage;
+
+
+-(void)presentLoadingView;
+-(void)startRequestWishPage:(NSInteger)pageIndex;
 @end
 
 @implementation WishWallTableViewController
+
+@synthesize wishPage;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,14 +47,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self presentLoadingView];
 
-    [self start]
+    [self startRequestWishPage:0];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    [self.wishPage release];
+    [super dealloc];
 }
 
 #pragma mark - Table view data source
@@ -53,11 +79,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    WishTableViewCell *cell = (WishTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[WishTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    Wish*wish=[self.wishPage.elementArray objectAtIndex:indexPath.row];
     
+    cell.wish=wish;
     // Configure the cell...
     
     return cell;
@@ -115,5 +143,35 @@
      [detailViewController release];
      */
 }
+#pragma mark -- AsiHttpRequestDelegate messages
 
+-(void)requestFinished:(ASIHTTPRequest *)request{
+    [loadingView removeFromSuperview];
+    WishPageParser*parser=[[WishPageParser alloc]init];
+    ElementsContainer*result=[parser parse:[request responseData]];
+    [parser release];
+    [self.tableView reloadData];
+    
+}
+-(void)requestFailed:(ASIHTTPRequest *)request{
+    [loadingView removeFromSuperview];
+}
+-(void)requestStarted:(ASIHTTPRequest *)request{
+    NSLog(@"Request started");
+    
+}
+
+#pragma mark -- private messages
+-(void)presentLoadingView{
+    loadingView.frame=self.view.bounds;
+    [self.view addSubview:loadingView];
+}
+-(void)startRequestWishPage:(NSInteger)pageIndex{
+    NSString*wishUrlString=[RequestURLUtility:wishUrlString:0];
+    ASIHTTPRequest*requst=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:wishUrlString]];
+    requst.delegate=self;
+    [requst startAsynchronous];
+    
+    
+}
 @end

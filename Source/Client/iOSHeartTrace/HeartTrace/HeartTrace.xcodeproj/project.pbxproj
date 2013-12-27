@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE12834D186D5B47000D9A2A /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12834C186D5B47000D9A2A /* Wish.m */; };
+		CE128350186D5B65000D9A2A /* ElementsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12834F186D5B65000D9A2A /* ElementsContainer.m */; };
+		CE128353186D5BF5000D9A2A /* WishPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128352186D5BF5000D9A2A /* WishPageParser.m */; };
+		CE128358186D6F77000D9A2A /* WishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128357186D6F77000D9A2A /* WishTableViewCell.m */; };
+		CE12835B186D74FF000D9A2A /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12835A186D74FF000D9A2A /* ViewUtility.m */; };
 		CEA1BC611864490E00C659DA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC601864490E00C659DA /* libxml2.dylib */; };
 		CEA1BC631864491600C659DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC621864491600C659DA /* MobileCoreServices.framework */; };
 		CEA1BC651864491D00C659DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC641864491D00C659DA /* SystemConfiguration.framework */; };
@@ -20,6 +25,7 @@
 		CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4638E18681DEA00452BD2 /* AccoutViewController.m */; };
 		CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB463911868355C00452BD2 /* WishWallTableViewController.m */; };
 		CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB463921868355C00452BD2 /* WishWallTableViewController.xib */; };
+		CEB46398186936D300452BD2 /* RequestURLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB46397186936D300452BD2 /* RequestURLUtility.m */; };
 		CEF5D547186447A1005E4859 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D546186447A1005E4859 /* UIKit.framework */; };
 		CEF5D549186447A1005E4859 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D548186447A1005E4859 /* Foundation.framework */; };
 		CEF5D54B186447A1005E4859 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D54A186447A1005E4859 /* CoreGraphics.framework */; };
@@ -70,6 +76,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE12834B186D5B47000D9A2A /* Wish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wish.h; path = Model/Wish.h; sourceTree = "<group>"; };
+		CE12834C186D5B47000D9A2A /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
+		CE12834E186D5B65000D9A2A /* ElementsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElementsContainer.h; path = Model/ElementsContainer.h; sourceTree = "<group>"; };
+		CE12834F186D5B65000D9A2A /* ElementsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElementsContainer.m; path = Model/ElementsContainer.m; sourceTree = "<group>"; };
+		CE128351186D5BF5000D9A2A /* WishPageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishPageParser.h; path = Model/WishPageParser.h; sourceTree = "<group>"; };
+		CE128352186D5BF5000D9A2A /* WishPageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishPageParser.m; path = Model/WishPageParser.m; sourceTree = "<group>"; };
+		CE128356186D6F77000D9A2A /* WishTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishTableViewCell.h; path = View/Cell/WishTableViewCell.h; sourceTree = "<group>"; };
+		CE128357186D6F77000D9A2A /* WishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewCell.m; path = View/Cell/WishTableViewCell.m; sourceTree = "<group>"; };
+		CE128359186D74FF000D9A2A /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewUtility.h; path = Util/CustomUtil/ViewUtility.h; sourceTree = "<group>"; };
+		CE12835A186D74FF000D9A2A /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtility.m; path = Util/CustomUtil/ViewUtility.m; sourceTree = "<group>"; };
 		CEA1BC601864490E00C659DA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		CEA1BC621864491600C659DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEA1BC641864491D00C659DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -92,6 +108,8 @@
 		CEB463901868355C00452BD2 /* WishWallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishWallTableViewController.h; path = ViewController/WishWallTableViewController.h; sourceTree = "<group>"; };
 		CEB463911868355C00452BD2 /* WishWallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishWallTableViewController.m; path = ViewController/WishWallTableViewController.m; sourceTree = "<group>"; };
 		CEB463921868355C00452BD2 /* WishWallTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishWallTableViewController.xib; path = ViewController/WishWallTableViewController.xib; sourceTree = "<group>"; };
+		CEB46396186936D300452BD2 /* RequestURLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestURLUtility.h; path = Util/CustomUtil/RequestURLUtility.h; sourceTree = "<group>"; };
+		CEB46397186936D300452BD2 /* RequestURLUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestURLUtility.m; path = Util/CustomUtil/RequestURLUtility.m; sourceTree = "<group>"; };
 		CEF5D543186447A1005E4859 /* HeartTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5D546186447A1005E4859 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF5D548186447A1005E4859 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +211,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE12834A186D5B15000D9A2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE12834B186D5B47000D9A2A /* Wish.h */,
+				CE12834C186D5B47000D9A2A /* Wish.m */,
+				CE12834E186D5B65000D9A2A /* ElementsContainer.h */,
+				CE12834F186D5B65000D9A2A /* ElementsContainer.m */,
+				CE128351186D5BF5000D9A2A /* WishPageParser.h */,
+				CE128352186D5BF5000D9A2A /* WishPageParser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CE128354186D6EFD000D9A2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE128355186D6F37000D9A2A /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CE128355186D6F37000D9A2A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE128356186D6F77000D9A2A /* WishTableViewCell.h */,
+				CE128357186D6F77000D9A2A /* WishTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		CEA1BC6A18644B8C00C659DA /* Conifgure */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,9 +268,22 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		CEB46395186936A700452BD2 /* CustomUtil */ = {
+			isa = PBXGroup;
+			children = (
+				CEB46396186936D300452BD2 /* RequestURLUtility.h */,
+				CEB46397186936D300452BD2 /* RequestURLUtility.m */,
+				CE128359186D74FF000D9A2A /* ViewUtility.h */,
+				CE12835A186D74FF000D9A2A /* ViewUtility.m */,
+			);
+			name = CustomUtil;
+			sourceTree = "<group>";
+		};
 		CEF5D53A186447A1005E4859 = {
 			isa = PBXGroup;
 			children = (
+				CE128354186D6EFD000D9A2A /* View */,
+				CE12834A186D5B15000D9A2A /* Model */,
 				CEA1BC71186461C700C659DA /* ViewController */,
 				CEA1BC6A18644B8C00C659DA /* Conifgure */,
 				CEF5D54C186447A1005E4859 /* HeartTrace */,
@@ -305,6 +366,7 @@
 		CEF5D57B18644805005E4859 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CEB46395186936A700452BD2 /* CustomUtil */,
 				CEF5D5CE1864482E005E4859 /* AsiHttpRequest */,
 			);
 			name = Util;
@@ -560,6 +622,12 @@
 				CEB4638B18681D8D00452BD2 /* BrowseViewController.m in Sources */,
 				CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */,
 				CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */,
+				CEB46398186936D300452BD2 /* RequestURLUtility.m in Sources */,
+				CE12834D186D5B47000D9A2A /* Wish.m in Sources */,
+				CE128350186D5B65000D9A2A /* ElementsContainer.m in Sources */,
+				CE128353186D5BF5000D9A2A /* WishPageParser.m in Sources */,
+				CE128358186D6F77000D9A2A /* WishTableViewCell.m in Sources */,
+				CE12835B186D74FF000D9A2A /* ViewUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
