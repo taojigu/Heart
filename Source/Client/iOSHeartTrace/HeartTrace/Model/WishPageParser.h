@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ElementsContainer;
 @interface WishPageParser : NSObject
 
+
+-(ElementsContainer*)parse:(NSData*)data;
 @end

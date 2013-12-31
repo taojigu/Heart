@@ -7,7 +7,15 @@
 //
 
 #import "WishPageParser.h"
+#import "ElementsContainer.h"
+#import "FakeDataFactory.h"
 
 @implementation WishPageParser
+
+-(ElementsContainer*)parse:(NSData*)data{
+    
+    ElementsContainer*fakeResult=[FakeDataFactory fakeWishPage:0 pageSize:12];
+    return fakeResult;
+}
 
 @end

@@ -10,7 +10,8 @@
 
 @implementation RequestURLUtility
 
-+(NSString*)wishRequestURLString:(NSInteger)pageIndex{
++(NSString*)wishRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
+    
     return nil;
 }
 

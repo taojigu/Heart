@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@class User;
+@class Product;
 
-@interface Wish : NSObject
+@interface Wish : NSObject{
+    
+}
+
+@property(nonatomic,retain)NSString*title;
+@property(nonatomic,retain)User*user;
+@property(nonatomic,retain)Product*product;
+@property(nonatomic,retain)NSString*time;
+@property(nonatomic,retain)NSString*text;
+@property(nonatomic,retain)NSString*imageUrl;
+
++(Wish*)fakeWish:(NSInteger)wishIndex;
 
 @end

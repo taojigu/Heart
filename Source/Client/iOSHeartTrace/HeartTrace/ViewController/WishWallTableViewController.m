@@ -131,12 +131,15 @@
 */
 
 #pragma mark - Table view delegate
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Wish*ws=[self.wishPage.elementArray objectAtIndex:indexPath.row];
+    return [WishTableViewCell heightForCell:ws];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+      *detailViewController = [[ alloc] initWithNibName:@";" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
@@ -150,6 +153,7 @@
     WishPageParser*parser=[[WishPageParser alloc]init];
     ElementsContainer*result=[parser parse:[request responseData]];
     [parser release];
+    [self.wishPage.elementArray addObjectsFromArray:result.elementArray];
     [self.tableView reloadData];
     
 }
@@ -167,7 +171,7 @@
     [self.view addSubview:loadingView];
 }
 -(void)startRequestWishPage:(NSInteger)pageIndex{
-    NSString*wishUrlString=[RequestURLUtility:wishUrlString:0];
+    NSString*wishUrlString=[RequestURLUtility wishRequestURLString:0 pageSize:12];
     ASIHTTPRequest*requst=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:wishUrlString]];
     requst.delegate=self;
     [requst startAsynchronous];

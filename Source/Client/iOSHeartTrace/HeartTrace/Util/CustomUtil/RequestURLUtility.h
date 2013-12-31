@@ -10,5 +10,5 @@
 
 @interface RequestURLUtility : NSObject
 
-+(NSString*)wishRequestURLString:(NSInteger)pageIndex;
++(NSString*)wishRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
 @end
