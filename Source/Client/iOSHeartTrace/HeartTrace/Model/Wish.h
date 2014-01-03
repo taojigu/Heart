@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class User;
 @class Product;
+@class ImageInfo;
 
 @interface Wish : NSObject{
     
@@ -20,6 +21,7 @@
 @property(nonatomic,retain)NSString*time;
 @property(nonatomic,retain)NSString*text;
 @property(nonatomic,retain)NSString*imageUrl;
+@property(nonatomic,retain)NSMutableArray*imageInfoArray;
 
 +(Wish*)fakeWish:(NSInteger)wishIndex;
 

@@ -15,6 +15,15 @@
 @synthesize count;
 @synthesize elementArray;
 
+
+-(id)init{
+    self=[super init];
+    NSMutableArray*tmpArray=[[NSMutableArray alloc]init];
+    self.elementArray=tmpArray;
+    [tmpArray release];
+    return self;
+}
+
 -(void)dealloc{
     [self.elementArray release];
     [super dealloc];

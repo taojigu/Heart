@@ -13,10 +13,22 @@
 @interface WishTableViewCell : UITableViewCell
 
 @property(nonatomic,retain)Wish*wish;
+@property(nonatomic,retain)UIImageView*imageViewProfile;
+@property(nonatomic,retain)UIButton*btnUser;
+@property(nonatomic,retain)UILabel*labelWishText;
+@property(nonatomic,retain)UIImageView* imageViewWish;
+@property(nonatomic,retain)UIView*viewProduct;
+@property(nonatomic,retain)UIImageView*imageViewProduct;
+@property(nonatomic,retain)UILabel*labelProductText;
+@property(nonatomic,retain)UILabel*labelTime;
 
-+(CGFloat)heightForCell:(Wish*)wish;
-+(CGFloat)productHeight:(Product*)product;
-+(CGFloat)imageHeight:(NSString*)imageUrlString;
-+(CGFloat)wishTextHeight:(NSString*)text;
++(CGFloat)heightForCell:(Wish *)wish;
+
+
++(CGSize)profileImageViewSize:(Wish*)wish;
++(CGSize)wishTextSize:(Wish*)wish;
++(CGSize)wishImageSize:(Wish*)wish;
++(CGSize)productViewSize:(Wish*)wish;
++(CGSize)timeLabelSize:(Wish*)wish;
 
 @end

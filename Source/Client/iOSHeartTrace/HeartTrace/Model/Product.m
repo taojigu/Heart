@@ -30,6 +30,11 @@
 @synthesize price;
 
 
+-(id)init{
+    self=[super init];
+    organization=[[Organization alloc]init];
+    return self;
+}
 -(void)dealloc{
     [self.productId release];
     [self.name release];

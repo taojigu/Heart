@@ -48,6 +48,7 @@
 		CEC187F41872672E0045AFA4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC187F31872672D0045AFA4 /* ImageIO.framework */; };
 		CEC187F6187267470045AFA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC187F5187267470045AFA4 /* MapKit.framework */; };
 		CEC187F91872A7AA0045AFA4 /* FakeDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */; };
+		CED6B34118769FB6004679F7 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CED6B34018769FB6004679F7 /* ImageInfo.m */; };
 		CEF5D547186447A1005E4859 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D546186447A1005E4859 /* UIKit.framework */; };
 		CEF5D549186447A1005E4859 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D548186447A1005E4859 /* Foundation.framework */; };
 		CEF5D54B186447A1005E4859 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D54A186447A1005E4859 /* CoreGraphics.framework */; };
@@ -174,6 +175,8 @@
 		CEC187F5187267470045AFA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CEC187F71872A7AA0045AFA4 /* FakeDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FakeDataFactory.h; path = Util/CustomUtil/FakeDataFactory.h; sourceTree = "<group>"; };
 		CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeDataFactory.m; path = Util/CustomUtil/FakeDataFactory.m; sourceTree = "<group>"; };
+		CED6B33F18769FB6004679F7 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageInfo.h; path = Model/ImageInfo.h; sourceTree = "<group>"; };
+		CED6B34018769FB6004679F7 /* ImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageInfo.m; path = Model/ImageInfo.m; sourceTree = "<group>"; };
 		CEF5D543186447A1005E4859 /* HeartTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5D546186447A1005E4859 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF5D548186447A1005E4859 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 				CEC187C01871570F0045AFA4 /* User.m */,
 				CEC187C218715E7C0045AFA4 /* Organization.h */,
 				CEC187C318715E7C0045AFA4 /* Organization.m */,
+				CED6B33F18769FB6004679F7 /* ImageInfo.h */,
+				CED6B34018769FB6004679F7 /* ImageInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -772,6 +777,7 @@
 				CEC187EF187265450045AFA4 /* UIImage+WebP.m in Sources */,
 				CEC187F0187265450045AFA4 /* UIImageView+WebCache.m in Sources */,
 				CEC187F91872A7AA0045AFA4 /* FakeDataFactory.m in Sources */,
+				CED6B34118769FB6004679F7 /* ImageInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

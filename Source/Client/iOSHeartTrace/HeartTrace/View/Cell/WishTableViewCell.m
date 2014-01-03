@@ -8,9 +8,18 @@
 
 #import "WishTableViewCell.h"
 #import "Wish.h"
+#import "Product.h"
+#import "User.h"
+#import "Organization.h"
+#import "ImageInfo.h"
+
+#define DefaultCellWidth 320
+#define DefaultCellHeight 44
 
 #define WishTextFontSize 14
 #define ProductTextFontSize 12
+#define UserButtonFontSize 14
+#define TimeFontSize 12
 
 #define CELL_LEfT_MARGIN 20
 #define CELL_RIGHT_MARGIN 10
@@ -25,9 +34,12 @@
 #define WISH_IMAGE_VIEW_HEIGHT 80
 #define PRODUCT_HEIGHT 40
 
-#define IMAGE_WIDTH 150
-#define IMAGE_HEIGHT 100
-#define HEADER_HEIGHT 40
+//#define IMAGE_WIDTH 150
+//#define IMAGE_HEIGHT 150
+#define ProfileImageViewWidth 80
+#define ProfileImageViewHeight 80
+
+#define TimeLabelHeight 20
 
 @interface WishTableViewCell (){
     @private
@@ -40,14 +52,6 @@
     UILabel*labelProductText;
     UILabel*labelTime;
 }
-@property(nonatomic,retain)UIImageView*imageViewProfile;
-@property(nonatomic,retain)UIButton*btnUser;
-@property(nonatomic,retain)UILabel*labelWishText;
-@property(nonatomic,retain)UIImageView* imageViewWish;
-@property(nonatomic,retain)UIView*viewProduct;
-@property(nonatomic,retain)UIImageView*imageViewProduct;
-@property(nonatomic,retain)UILabel*labelProductText;
-@property(nonatomic,retain)UILabel*labelTime;
 
 
 -(void)reloadCellData;
@@ -68,6 +72,15 @@
 @synthesize labelProductText;
 @synthesize labelTime;
 
+#define Header_Distance 2
+#define User_WishText_Distance 2
+#define Header_WishImage_Distance 5
+#define Header_UserButton_Distance 7
+#define WishImage_Product_Distance 5
+#define Product_Time_Distance 4
+#define Footer_Distance 5
+
+
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -81,17 +94,7 @@
 }
 
 -(void)dealloc{
-   /*
-    @synthesize wish;
-    @synthesize imageViewProfile;
-    @synthesize btnUser;
-    @synthesize labelWishText;
-    @synthesize imageViewWish;
-    @synthesize viewProduct;
-    @synthesize imageViewProduct;
-    @synthesize labelProduct;
-    @synthesize labelTime;
-    */
+  
     [self.wish release];
     [self.imageViewProfile release];
     [self.btnUser release];
@@ -113,6 +116,7 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    [self layoutCellDataViews];
 }
 
 -(void)setWish:(Wish *)ws{
@@ -129,80 +133,105 @@
 -(void)reloadCellData{
     
 }
-#define ProFileWidth 70
+
 
 -(void)layoutCellDataViews{
-    CGRect profileRect=CGRectMake(CELL_LEfT_MARGIN,0,ProFileWidth,HEADER_HEIGHT);
-    profileRect=CGRectInset(profileRect, 0, 4);
+    CGRect profileRect=CGRectMake(CELL_LEfT_MARGIN,Header_Distance,ProfileImageViewWidth,ProfileImageViewHeight);
+    //profileRect=CGRectInset(profileRect, 0, );
     self.imageViewProfile.frame=profileRect;
     
     CGFloat left=CGRectGetWidth(profileRect)+2*CELL_LEfT_MARGIN;
-    CGFloat width=CGRectGetWidth(self.frame)-left;
-    CGRect userNameRect=CGRectMake(left, 0, width, HEADER_HEIGHT);
-    userNameRect=CGRectInset(userNameRect, 0, 8);
+    CGFloat width=DefaultCellWidth-left-CELL_RIGHT_MARGIN;
+    
+    CGSize btnSize=[self.wish.user.nickName sizeWithFont:btnUser.titleLabel.font];
+    CGRect userNameRect=CGRectMake(left,Header_UserButton_Distance, btnSize.width, btnSize.height);
     self.btnUser.frame=userNameRect;
     
+    //CGSize wishTextSize=[self.wish.text sizeWithFont:self.labelWishText.font forWidth:width lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize wishTextSize=[WishTableViewCell wishTextSize:self.wish width:width font:self.labelWishText.font];
+    CGFloat nextTop=CGRectGetMaxY(btnUser.frame)+User_WishText_Distance;
+    CGRect wishTextRect=CGRectMake(left, nextTop, wishTextSize.width, wishTextSize.height);
+    self.labelWishText.frame=wishTextRect;
+    
+    nextTop=CGRectGetMaxY(self.labelWishText.frame)+Header_WishImage_Distance;
+    CGSize wishImageSize=[WishTableViewCell wishImageSize:self.wish];
+    self.imageViewWish.frame=CGRectMake(left, nextTop, wishImageSize.width, wishImageSize.height);
+    
+    nextTop=CGRectGetMaxY(self.imageViewWish.frame)+WishImage_Product_Distance;
+    CGSize productViewSize=[WishTableViewCell productViewSize:self.wish width:width];
+    viewProduct.frame=CGRectMake(left , nextTop, productViewSize.width, productViewSize.height);
+    
+    nextTop=CGRectGetMaxY(self.viewProduct.frame)+Product_Time_Distance;
+    CGSize timeLabelSize=[self.wish.time sizeWithFont:labelTime.font];
+    [WishTableViewCell timeLabelSize:self.wish];
+    labelTime.frame=CGRectMake(left, nextTop, timeLabelSize.width,timeLabelSize.height);
     
 }
 -(void)initSubviews{
 
     imageViewProfile=[[UIImageView alloc]initWithFrame:CGRectZero];
+    imageViewProfile.backgroundColor=[UIColor grayColor];
     [self.contentView addSubview:imageViewProfile];
     btnUser=[[UIButton alloc]initWithFrame:CGRectZero];
+    btnUser.titleLabel.font=[UIFont systemFontOfSize:UserButtonFontSize];
+    [btnUser setBackgroundColor:[UIColor grayColor]];
+    btnUser.titleLabel.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:btnUser];
     [btnUser setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
    
     labelWishText=[[UILabel alloc]initWithFrame:CGRectZero];
-    labelWishText.font=[UIFont systemFontOfSize:14];
+    labelWishText.font=[UIFont systemFontOfSize:WishTextFontSize];
+    labelWishText.lineBreakMode=NSLineBreakByWordWrapping;
+    labelWishText.textAlignment=NSTextAlignmentLeft;
+    labelWishText.numberOfLines=0;
+    
     [self.contentView addSubview:labelWishText];
     
     imageViewWish=[[UIImageView alloc]initWithFrame:CGRectZero];
+    imageViewWish.backgroundColor=[UIColor redColor];
     [self.contentView addSubview:imageViewWish];
     
     viewProduct=[[UIView alloc]initWithFrame:CGRectZero];
-    viewProduct.backgroundColor=[UIColor grayColor];
+    viewProduct.backgroundColor=[UIColor blueColor];
     [self.contentView addSubview:viewProduct];
    
     labelProductText=[[UILabel alloc]initWithFrame:CGRectZero];
-    labelProductText.font=[UIFont systemFontOfSize:12];
+    labelProductText.font=[UIFont systemFontOfSize:ProductTextFontSize];
     [viewProduct addSubview:labelProductText];
     
     imageViewProduct=[[UIImageView alloc]initWithFrame:CGRectZero];
     [viewProduct addSubview:imageViewProduct];
     labelTime=[[UILabel alloc]initWithFrame:CGRectZero];
+    labelTime.font=[UIFont systemFontOfSize:TimeFontSize];
     labelTime.textColor=[UIColor blueColor];
-    
+    [self.contentView addSubview:labelTime];
     
 }
 
 +(CGFloat)heightForCell:(Wish *)wish{
-    NSAssert(nil!=wish, @"no cell height for nil cell");
+    CGFloat cellHeight=0;
+    NSAssert(nil!=wish, @"no cell height for nil wish");
+    CGFloat rightWidth=DefaultCellWidth-ProfileImageViewWidth-2*CELL_LEfT_MARGIN-CELL_RIGHT_MARGIN;
+    CGFloat leftHeight=Header_WishImage_Distance+ProfileImageViewHeight;
+    CGFloat rightHeight=Header_UserButton_Distance;
+    CGSize sz=[wish.user.nickName sizeWithFont:[UIFont systemFontOfSize:UserButtonFontSize]];
+    rightHeight+=sz.height+User_WishText_Distance;
+    sz=[WishTableViewCell wishTextSize:wish width:rightWidth font:[UIFont systemFontOfSize:WishTextFontSize]];
+    rightHeight+=sz.height;
     
-    CGFloat headerHeight=0;
+    CGFloat headerHeight=rightHeight;
+    cellHeight+=headerHeight;
+    cellHeight+=Header_WishImage_Distance;
     
-    CGFloat wishTextHeight=[WishTableViewCell wishTextHeight:wish.text];
-    
-    CGFloat imageHieght=[WishTableViewCell imageHeight:wish.imageUrl];
-    
-    CGFloat productHeight=[WishTableViewCell productHeight:wish.product];
-    
-    CGFloat tailHeight=0;
-    
-    return  headerHeight+wishTextHeight+imageHieght+productHeight+tailHeight;
+    cellHeight+=[WishTableViewCell wishImageSize:wish].height;
+    cellHeight+=[WishTableViewCell productViewSize:wish width:rightWidth].height;
+    cellHeight+=Product_Time_Distance;
+    cellHeight+=[WishTableViewCell timeLabelSize:wish].height;
+    cellHeight+=Footer_Distance;
+    return  cellHeight;
 
 }
-+(CGFloat)productHeight:(Product*)product{
-    if(nil==product){
-        return 0;
-    }
-    return  PRODUCT_HEIGHT;
-}
-+(CGFloat)imageHeight:(NSString*)imageUrlString{
-    if (0==[imageUrlString length]) {
-        return 0;
-    }
-    return WISH_IMAGE_VIEW_HEIGHT;
-}
+
 +(CGFloat)wishTextHeight:(NSString*)text{
     
     if ([text length]==0) {
@@ -218,6 +247,29 @@
     
     return height+2*CELL_HEIGHT_MARGIN;
 }
++(CGSize)wishImageSize:(Wish*)wish{
+    if ([wish.imageInfoArray count]==0) {
+        return CGSizeZero;
+    }
+    ImageInfo*info=[wish.imageInfoArray objectAtIndex:0];
+    return CGSizeMake(info.width, info.height);
+}
++(CGSize)productViewSize:(Wish*)wish width:(CGFloat)width{
+
+    return CGSizeMake(width,PRODUCT_HEIGHT);
+}
++(CGSize)timeLabelSize:(Wish*)wish {
+    return [wish.time sizeWithFont:[UIFont systemFontOfSize:TimeFontSize]]; 
+}
++(CGSize)profileImageViewSize:(Wish*)wish{
+    return CGSizeMake(ProfileImageViewWidth, ProfileImageViewHeight);
+}
++(CGSize)wishTextSize:(Wish*)wish width:(NSInteger)width font:(UIFont*)font{
+    CGSize sz=[wish.text sizeWithFont:font constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    return sz;
+}
+
+
 
 
 @end

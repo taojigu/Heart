@@ -12,7 +12,7 @@
 
 +(NSString*)wishRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
     
-    return nil;
+    return @"http://www.163.com";
 }
 
 @end

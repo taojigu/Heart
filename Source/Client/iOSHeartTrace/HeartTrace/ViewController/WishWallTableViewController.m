@@ -13,6 +13,10 @@
 #import "Wish.h"
 #import "WishPageParser.h"
 #import "WishTableViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "User.h"
+#import "Product.h"
+#import "Organization.h"
 
 
 
@@ -39,6 +43,7 @@
     if (self) {
         // Custom initialization
         self.title=NSLocalizedString(@"WishWallTitle", nil);
+        wishPage=[[ElementsContainer alloc]init];
         
     }
     return self;
@@ -73,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.wishPage.elementArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,7 +88,14 @@
     if (cell == nil) {
         cell = [[[WishTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    
     Wish*wish=[self.wishPage.elementArray objectAtIndex:indexPath.row];
+    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    [cell.imageViewProfile setImageWithURL:[NSURL URLWithString:wish.imageUrl] placeholderImage:nil];
+    [cell.btnUser setTitle:wish.user.nickName forState:UIControlStateNormal];
+    cell.labelWishText.text=wish.text;
+    cell.labelTime.text=wish.time;
     
     cell.wish=wish;
     // Configure the cell...
