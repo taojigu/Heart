@@ -14,7 +14,7 @@
 
 -(ElementsContainer*)parse:(NSData*)data{
     
-    ElementsContainer*fakeResult=[FakeDataFactory fakeWishPage:0 pageSize:12];
+    ElementsContainer*fakeResult=[FakeDataFactory fakeWishPage:0 pageSize:3];
     return fakeResult;
 }
 

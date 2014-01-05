@@ -183,7 +183,7 @@
     [self.view addSubview:loadingView];
 }
 -(void)startRequestWishPage:(NSInteger)pageIndex{
-    NSString*wishUrlString=[RequestURLUtility wishRequestURLString:0 pageSize:12];
+    NSString*wishUrlString=[RequestURLUtility wishRequestURLString:0 pageSize:2];
     ASIHTTPRequest*requst=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:wishUrlString]];
     requst.delegate=self;
     [requst startAsynchronous];

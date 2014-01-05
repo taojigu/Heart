@@ -47,7 +47,7 @@
     wish.user=fakeUser;
     wish.imageUrl=nil;
     NSMutableString*strText=[[NSMutableString alloc]init];
-    for (NSInteger indx=0; indx<=wishIndex; indx++) {
+    for (NSInteger indx=1; indx<=wishIndex; indx++) {
         [strText appendFormat:@"The wish text is %i",indx];
     }
     wish.text=strText;

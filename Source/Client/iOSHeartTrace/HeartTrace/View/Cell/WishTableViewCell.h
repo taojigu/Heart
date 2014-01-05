@@ -25,10 +25,9 @@
 +(CGFloat)heightForCell:(Wish *)wish;
 
 
-+(CGSize)profileImageViewSize:(Wish*)wish;
-+(CGSize)wishTextSize:(Wish*)wish;
 +(CGSize)wishImageSize:(Wish*)wish;
-+(CGSize)productViewSize:(Wish*)wish;
-+(CGSize)timeLabelSize:(Wish*)wish;
++(CGSize)productViewSize:(Wish*)wish width:(CGFloat)width;
++(CGSize)timeLabelSize:(Wish*)wish width:(CGFloat)width ;
++(CGSize)textSize:(NSString*)text width:(NSInteger)width font:(UIFont*)font;
 
 @end

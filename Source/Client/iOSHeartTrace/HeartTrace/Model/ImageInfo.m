@@ -29,7 +29,7 @@
     ImageInfo*result=[[[ImageInfo alloc]init]autorelease];
     result.imageId=[NSString stringWithFormat:@"ImageId %i",imageIndex];
     result.imageName=[NSString stringWithFormat:@"ImageName %i",imageIndex];
-    result.width=60;
+    result.width=80;
     result.height=120;
     result.introduction=[NSString stringWithFormat:@"The image introduction for the image %i",imageIndex];
     return result;

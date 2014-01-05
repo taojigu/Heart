@@ -32,7 +32,7 @@
 #define ICON_IMAGE_LENGTH 40
 
 #define WISH_IMAGE_VIEW_HEIGHT 80
-#define PRODUCT_HEIGHT 40
+#define PRODUCT_HEIGHT 80
 
 //#define IMAGE_WIDTH 150
 //#define IMAGE_HEIGHT 150
@@ -143,7 +143,7 @@
     CGFloat left=CGRectGetWidth(profileRect)+2*CELL_LEfT_MARGIN;
     CGFloat width=DefaultCellWidth-left-CELL_RIGHT_MARGIN;
     
-    CGSize btnSize=[self.wish.user.nickName sizeWithFont:btnUser.titleLabel.font];
+    CGSize btnSize=[WishTableViewCell textSize:self.wish.user.nickName width:width font:[UIFont systemFontOfSize:UserButtonFontSize]];
     CGRect userNameRect=CGRectMake(left,Header_UserButton_Distance, btnSize.width, btnSize.height);
     self.btnUser.frame=userNameRect;
     
@@ -162,8 +162,7 @@
     viewProduct.frame=CGRectMake(left , nextTop, productViewSize.width, productViewSize.height);
     
     nextTop=CGRectGetMaxY(self.viewProduct.frame)+Product_Time_Distance;
-    CGSize timeLabelSize=[self.wish.time sizeWithFont:labelTime.font];
-    [WishTableViewCell timeLabelSize:self.wish];
+    CGSize timeLabelSize=[WishTableViewCell timeLabelSize:self.wish width:width];
     labelTime.frame=CGRectMake(left, nextTop, timeLabelSize.width,timeLabelSize.height);
     
 }
@@ -212,11 +211,13 @@
     CGFloat cellHeight=0;
     NSAssert(nil!=wish, @"no cell height for nil wish");
     CGFloat rightWidth=DefaultCellWidth-ProfileImageViewWidth-2*CELL_LEfT_MARGIN-CELL_RIGHT_MARGIN;
-    CGFloat leftHeight=Header_WishImage_Distance+ProfileImageViewHeight;
+   
     CGFloat rightHeight=Header_UserButton_Distance;
-    CGSize sz=[wish.user.nickName sizeWithFont:[UIFont systemFontOfSize:UserButtonFontSize]];
+    //CGSize sz=[wish.user.nickName sizeWithFont:[UIFont systemFontOfSize:UserButtonFontSize]];
+    CGSize sz=[WishTableViewCell textSize:wish.user.nickName width:rightWidth font:[UIFont systemFontOfSize:UserButtonFontSize]];
     rightHeight+=sz.height+User_WishText_Distance;
-    sz=[WishTableViewCell wishTextSize:wish width:rightWidth font:[UIFont systemFontOfSize:WishTextFontSize]];
+    //sz=[WishTableViewCell wishTextSize:wish width:rightWidth font:[UIFont systemFontOfSize:WishTextFontSize]];
+    
     rightHeight+=sz.height;
     
     CGFloat headerHeight=rightHeight;
@@ -226,27 +227,12 @@
     cellHeight+=[WishTableViewCell wishImageSize:wish].height;
     cellHeight+=[WishTableViewCell productViewSize:wish width:rightWidth].height;
     cellHeight+=Product_Time_Distance;
-    cellHeight+=[WishTableViewCell timeLabelSize:wish].height;
+    cellHeight+=[WishTableViewCell timeLabelSize:wish width:rightWidth].height;
     cellHeight+=Footer_Distance;
     return  cellHeight;
 
 }
 
-+(CGFloat)wishTextHeight:(NSString*)text{
-    
-    if ([text length]==0) {
-        return 0;
-    }
-    
-    NSDictionary*attriDict=[NSDictionary dictionaryWithObject:NSFontAttributeName forKey:[UIFont systemFontOfSize:14]];
-    CGSize constraintSize=CGSizeMake(DEFAULT_CELL_WIDTH-CELL_LEfT_MARGIN-CELL_RIGHT_MARGIN, 200000 );
-    
-    NSAttributedString*attriString=[[NSAttributedString alloc]initWithString:text attributes:attriDict];
-    CGRect rect=[attriString boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    CGFloat height=MAX(rect.size.height, DEFAULT_CELL_HEIGHT);
-    
-    return height+2*CELL_HEIGHT_MARGIN;
-}
 +(CGSize)wishImageSize:(Wish*)wish{
     if ([wish.imageInfoArray count]==0) {
         return CGSizeZero;
@@ -258,13 +244,27 @@
 
     return CGSizeMake(width,PRODUCT_HEIGHT);
 }
-+(CGSize)timeLabelSize:(Wish*)wish {
-    return [wish.time sizeWithFont:[UIFont systemFontOfSize:TimeFontSize]]; 
++(CGSize)timeLabelSize:(Wish*)wish width:(CGFloat)width {
+    //return [wish.time sizeWithFont:[UIFont systemFontOfSize:TimeFontSize]];
+    return [WishTableViewCell textSize:wish.time width:width font:[UIFont systemFontOfSize:TimeFontSize]];
 }
-+(CGSize)profileImageViewSize:(Wish*)wish{
-    return CGSizeMake(ProfileImageViewWidth, ProfileImageViewHeight);
+
++(CGSize)textSize:(NSString*)text width:(NSInteger)width font:(UIFont*)font{
+    if (0==[text length]) {
+        return CGSizeZero;
+    }
+    NSDictionary*attriDict=[NSDictionary dictionaryWithObject:NSFontAttributeName forKey:font];
+    NSAttributedString*attriString=[[NSAttributedString alloc]initWithString:text attributes:attriDict];
+    
+    CGSize constraintSize=CGSizeMake(width, MAXFLOAT);
+    CGRect rect=[attriString boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil];
+    [attriString release];
+    return  rect.size;
 }
 +(CGSize)wishTextSize:(Wish*)wish width:(NSInteger)width font:(UIFont*)font{
+   
+    return [WishTableViewCell textSize:wish.text width:width font:[UIFont systemFontOfSize:WishTextFontSize]];
+    //CGSize sz=[wish.text sizeWithAttributes:attriDict];
     CGSize sz=[wish.text sizeWithFont:font constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
     return sz;
 }
