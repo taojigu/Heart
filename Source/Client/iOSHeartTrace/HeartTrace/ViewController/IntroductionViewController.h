@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IntroductionViewController : UIViewController
+@protocol IntroductionViewCotrollerDelegate <NSObject>
+
+-(void)introductionDidFinish:(UIViewController*)viewController;
+
+@end
+
+@interface IntroductionViewController : UIViewController{
+    
+}
+
+@property(nonatomic,assign)id<IntroductionViewCotrollerDelegate>delegate;
 
 @end

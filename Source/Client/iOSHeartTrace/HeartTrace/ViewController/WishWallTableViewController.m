@@ -7,18 +7,44 @@
 //
 
 #import "WishWallTableViewController.h"
+#import "ASIHTTPRequest.h"
+#import "RequestURLUtility.h"
+#import "ElementsContainer.h"
+#import "Wish.h"
+#import "WishPageParser.h"
+#import "WishTableViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "User.h"
+#import "Product.h"
+#import "Organization.h"
 
-@interface WishWallTableViewController ()
 
+
+@interface WishWallTableViewController (){
+    @private
+    IBOutlet UIView*loadingView;
+    
+}
+
+@property(nonatomic,retain)ElementsContainer*wishPage;
+
+
+-(void)presentLoadingView;
+-(void)startRequestWishPage:(NSInteger)pageIndex;
 @end
 
 @implementation WishWallTableViewController
+
+@synthesize wishPage;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title=NSLocalizedString(@"WishWallTitle", nil);
+        wishPage=[[ElementsContainer alloc]init];
+        
     }
     return self;
 }
@@ -26,12 +52,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self presentLoadingView];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self startRequestWishPage:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,30 +64,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc{
+    [self.wishPage release];
+    [super dealloc];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.wishPage.elementArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    WishTableViewCell *cell = (WishTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[WishTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    Wish*wish=[self.wishPage.elementArray objectAtIndex:indexPath.row];
+    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    [cell.imageViewProfile setImageWithURL:[NSURL URLWithString:wish.imageUrl] placeholderImage:nil];
+    [cell.btnUser setTitle:wish.user.nickName forState:UIControlStateNormal];
+    cell.labelWishText.text=wish.text;
+    cell.labelTime.text=wish.time;
+    
+    cell.wish=wish;
     // Configure the cell...
     
     return cell;
@@ -109,17 +143,51 @@
 */
 
 #pragma mark - Table view delegate
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Wish*ws=[self.wishPage.elementArray objectAtIndex:indexPath.row];
+    return [WishTableViewCell heightForCell:ws];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+      *detailViewController = [[ alloc] initWithNibName:@";" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
 }
+#pragma mark -- AsiHttpRequestDelegate messages
 
+-(void)requestFinished:(ASIHTTPRequest *)request{
+    [loadingView removeFromSuperview];
+    WishPageParser*parser=[[WishPageParser alloc]init];
+    ElementsContainer*result=[parser parse:[request responseData]];
+    [parser release];
+    [self.wishPage.elementArray addObjectsFromArray:result.elementArray];
+    [self.tableView reloadData];
+    
+}
+-(void)requestFailed:(ASIHTTPRequest *)request{
+    [loadingView removeFromSuperview];
+}
+-(void)requestStarted:(ASIHTTPRequest *)request{
+    NSLog(@"Request started");
+    
+}
+
+#pragma mark -- private messages
+-(void)presentLoadingView{
+    loadingView.frame=self.view.bounds;
+    [self.view addSubview:loadingView];
+}
+-(void)startRequestWishPage:(NSInteger)pageIndex{
+    NSString*wishUrlString=[RequestURLUtility wishRequestURLString:0 pageSize:2];
+    ASIHTTPRequest*requst=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:wishUrlString]];
+    requst.delegate=self;
+    [requst startAsynchronous];
+    
+    
+}
 @end

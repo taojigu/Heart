@@ -1,7 +1,9 @@
-/* 
-  Localizable.strings
-  HeartTrace
-
-  Created by user on 13-12-23.
-  Copyright (c) 2013年 voole. All rights reserved.
-*/
+{
+	NetworkFailText = "\U65e0\U6cd5\U8bbf\U95ee\U7f51\U8def\Uff0c\U8bf7\U68c0\U67e5\U8bbe\U7f6e\U7f51\U7edc\U8bbe\U7f6e\U60c5\U51b5";
+	NetworkWarning = "\U7f51\U7edc\U5f02\U5e38";
+	OKText = "\U786e\U8ba4";
+	CancelText = "\U53d6\U6d88";
+	BrowseTitle = "\U6d4f\U89c8";
+	WishWallTitle = "\U8bb8\U613f\U5899";
+	AccountTitle = "\U8d26\U6237";
+}
