@@ -17,9 +17,9 @@
 @property(nonatomic,retain)UIButton*btnUser;
 @property(nonatomic,retain)UILabel*labelWishText;
 @property(nonatomic,retain)UIImageView* imageViewWish;
-@property(nonatomic,retain)UIView*viewProduct;
-@property(nonatomic,retain)UIImageView*imageViewProduct;
-@property(nonatomic,retain)UILabel*labelProductText;
+@property(nonatomic,retain)UIButton*btnProduct;
+//@property(nonatomic,retain)UIImageView*imageViewProduct;
+//@property(nonatomic,retain)UILabel*labelProductText;
 @property(nonatomic,retain)UILabel*labelTime;
 
 +(CGFloat)heightForCell:(Wish *)wish;
@@ -28,6 +28,7 @@
 +(CGSize)wishImageSize:(Wish*)wish;
 +(CGSize)productViewSize:(Wish*)wish width:(CGFloat)width;
 +(CGSize)timeLabelSize:(Wish*)wish width:(CGFloat)width ;
++(CGSize)userNameButtonSize:(NSString*)userName width:(CGFloat)width font:(UIFont*)font;
 +(CGSize)textSize:(NSString*)text width:(NSInteger)width font:(UIFont*)font;
 
 @end

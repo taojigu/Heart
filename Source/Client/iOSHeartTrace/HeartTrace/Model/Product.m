@@ -49,6 +49,7 @@
     Product*prdt=[[[Product alloc]init]autorelease];
     prdt.name=[NSString stringWithFormat:@"ProductName%i",productIndex];
     prdt.productId=[NSString stringWithFormat:@"pid%i",productIndex];
+    prdt.text=[NSString stringWithFormat:@"Product Text %i",productIndex];
     prdt.imageUrl=nil;
     prdt.launchedDate=@"2013-12-31";
     prdt.organization=nil;

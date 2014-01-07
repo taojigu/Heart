@@ -12,6 +12,7 @@
 		CE128353186D5BF5000D9A2A /* WishPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128352186D5BF5000D9A2A /* WishPageParser.m */; };
 		CE128358186D6F77000D9A2A /* WishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128357186D6F77000D9A2A /* WishTableViewCell.m */; };
 		CE12835B186D74FF000D9A2A /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12835A186D74FF000D9A2A /* ViewUtility.m */; };
+		CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE6E2418187BE1EB001672E6 /* profile.jpeg */; };
 		CEA1BC611864490E00C659DA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC601864490E00C659DA /* libxml2.dylib */; };
 		CEA1BC631864491600C659DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC621864491600C659DA /* MobileCoreServices.framework */; };
 		CEA1BC651864491D00C659DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC641864491D00C659DA /* SystemConfiguration.framework */; };
@@ -109,6 +110,9 @@
 		CE128357186D6F77000D9A2A /* WishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewCell.m; path = View/Cell/WishTableViewCell.m; sourceTree = "<group>"; };
 		CE128359186D74FF000D9A2A /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewUtility.h; path = Util/CustomUtil/ViewUtility.h; sourceTree = "<group>"; };
 		CE12835A186D74FF000D9A2A /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtility.m; path = Util/CustomUtil/ViewUtility.m; sourceTree = "<group>"; };
+		CE6E2417187BE1EB001672E6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/profile.jpeg"; sourceTree = "<group>"; };
+		CE6E2419187BE232001672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/profile.jpeg; sourceTree = "<group>"; };
+		CE6E241A187BE337001672E6 /* ImageNameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageNameConst.h; path = Configure/ImageNameConst.h; sourceTree = "<group>"; };
 		CEA1BC601864490E00C659DA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		CEA1BC621864491600C659DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEA1BC641864491D00C659DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -319,11 +323,20 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		CE6E2413187BE15B001672E6 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E2418187BE1EB001672E6 /* profile.jpeg */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		CEA1BC6A18644B8C00C659DA /* Conifgure */ = {
 			isa = PBXGroup;
 			children = (
 				CEA1BC6B18644BC100C659DA /* ConstConfigure.h */,
 				CEA1BC6E186450DA00C659DA /* DefaultValueConfigure.h */,
+				CE6E241A187BE337001672E6 /* ImageNameConst.h */,
 			);
 			name = Conifgure;
 			sourceTree = "<group>";
@@ -460,6 +473,7 @@
 		CEF5D54D186447A1005E4859 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E2413187BE15B001672E6 /* Image */,
 				CEF5D54E186447A1005E4859 /* HeartTrace-Info.plist */,
 				CEF5D54F186447A1005E4859 /* InfoPlist.strings */,
 				CEF5D552186447A1005E4859 /* main.m */,
@@ -694,6 +708,7 @@
 				CEB4638218680EC900452BD2 /* IntroductionViewController.xib in Resources */,
 				CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */,
 				CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */,
+				CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +820,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CE6E2418187BE1EB001672E6 /* profile.jpeg */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6E2417187BE1EB001672E6 /* zh-Hans */,
+				CE6E2419187BE232001672E6 /* en */,
+			);
+			name = profile.jpeg;
+			path = Image;
+			sourceTree = "<group>";
+		};
 		CEB463781867DE7B00452BD2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -898,7 +923,7 @@
 				GCC_PREFIX_HEADER = "HeartTrace/HeartTrace-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "HeartTrace/HeartTrace-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -914,7 +939,7 @@
 				GCC_PREFIX_HEADER = "HeartTrace/HeartTrace-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "HeartTrace/HeartTrace-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

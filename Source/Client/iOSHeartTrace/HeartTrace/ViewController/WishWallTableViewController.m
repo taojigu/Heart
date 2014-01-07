@@ -17,6 +17,9 @@
 #import "User.h"
 #import "Product.h"
 #import "Organization.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "ImageNameConst.h"
 
 
 
@@ -92,12 +95,14 @@
     Wish*wish=[self.wishPage.elementArray objectAtIndex:indexPath.row];
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    [cell.imageViewProfile setImageWithURL:[NSURL URLWithString:wish.imageUrl] placeholderImage:nil];
+    [cell.imageViewProfile setImageWithURL:[NSURL URLWithString:wish.imageUrl] placeholderImage:[UIImage imageNamed:ProfileHeaderJpeg]];
     [cell.btnUser setTitle:wish.user.nickName forState:UIControlStateNormal];
     cell.labelWishText.text=wish.text;
-    cell.labelTime.text=wish.time;
-    
+    cell.labelTime.text=wish.time; 
     cell.wish=wish;
+
+    [cell.btnProduct setImageWithURL:[NSURL URLWithString:wish.product.imageUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:ProfileHeaderJpeg]];
+    [cell.btnProduct setTitle:wish.product.name forState:UIControlStateNormal];
     // Configure the cell...
     
     return cell;
@@ -171,6 +176,7 @@
 }
 -(void)requestFailed:(ASIHTTPRequest *)request{
     [loadingView removeFromSuperview];
+    NSLog(@"Request Failed");
 }
 -(void)requestStarted:(ASIHTTPRequest *)request{
     NSLog(@"Request started");

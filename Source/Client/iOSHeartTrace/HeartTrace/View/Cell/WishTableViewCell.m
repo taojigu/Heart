@@ -17,22 +17,19 @@
 #define DefaultCellHeight 44
 
 #define WishTextFontSize 14
-#define ProductTextFontSize 12
+#define ProductTextFontSize 16
 #define UserButtonFontSize 14
 #define TimeFontSize 12
 
 #define CELL_LEfT_MARGIN 20
 #define CELL_RIGHT_MARGIN 10
-#define CELL_HEIGHT_MARGIN 5
 
-#define DEFAULT_CELL_HEIGHT 44
-#define DEFAULT_CELL_WIDTH 320
 #define FONT_SIZE 14
 
 #define ICON_IMAGE_LENGTH 40
 
 #define WISH_IMAGE_VIEW_HEIGHT 80
-#define PRODUCT_HEIGHT 80
+#define PRODUCT_HEIGHT 60
 
 //#define IMAGE_WIDTH 150
 //#define IMAGE_HEIGHT 150
@@ -41,15 +38,17 @@
 
 #define TimeLabelHeight 20
 
+#define ProductViewInnerMargin 4
+
 @interface WishTableViewCell (){
     @private
     UIImageView*imageViewProfile;
     UIButton*btnUser;
     UILabel*labelWishText;
     UIImageView*imageViewWish;
-    UIView*viewProduct;
-    UIImageView*imageViewProduct;
-    UILabel*labelProductText;
+    UIButton*btnProduct;
+    //UIImageView*imageViewProduct;
+    //UILabel*labelProductText;
     UILabel*labelTime;
 }
 
@@ -57,6 +56,7 @@
 -(void)reloadCellData;
 -(void)layoutCellDataViews;
 -(void)initSubviews;
+-(IBAction)productButtonClicked:(id)sender;
 
 @end
 
@@ -67,9 +67,9 @@
 @synthesize btnUser;
 @synthesize labelWishText;
 @synthesize imageViewWish;
-@synthesize viewProduct;
-@synthesize imageViewProduct;
-@synthesize labelProductText;
+@synthesize btnProduct;
+//@synthesize imageViewProduct;
+//@synthesize labelProductText;
 @synthesize labelTime;
 
 #define Header_Distance 2
@@ -100,9 +100,9 @@
     [self.btnUser release];
     [self.labelWishText release];
     [self.imageViewWish release];
-    [self.viewProduct release];
-    [self.imageViewProduct release];
-    [self.labelProductText release];
+    [self.btnProduct release];
+    //[self.imageViewProduct release];
+    //[self.labelProductText release];
     [self.labelTime release];
     [super dealloc];
 }
@@ -143,7 +143,8 @@
     CGFloat left=CGRectGetWidth(profileRect)+2*CELL_LEfT_MARGIN;
     CGFloat width=DefaultCellWidth-left-CELL_RIGHT_MARGIN;
     
-    CGSize btnSize=[WishTableViewCell textSize:self.wish.user.nickName width:width font:[UIFont systemFontOfSize:UserButtonFontSize]];
+    CGSize btnSize=[WishTableViewCell userNameButtonSize:self.wish.user.nickName width:width font:[UIFont systemFontOfSize:UserButtonFontSize]];
+    //CGSize btnSize=[WishTableViewCell textSize:self.wish.user.nickName width:width font:[UIFont systemFontOfSize:UserButtonFontSize]];
     CGRect userNameRect=CGRectMake(left,Header_UserButton_Distance, btnSize.width, btnSize.height);
     self.btnUser.frame=userNameRect;
     
@@ -157,13 +158,30 @@
     CGSize wishImageSize=[WishTableViewCell wishImageSize:self.wish];
     self.imageViewWish.frame=CGRectMake(left, nextTop, wishImageSize.width, wishImageSize.height);
     
+    
     nextTop=CGRectGetMaxY(self.imageViewWish.frame)+WishImage_Product_Distance;
     CGSize productViewSize=[WishTableViewCell productViewSize:self.wish width:width];
-    viewProduct.frame=CGRectMake(left , nextTop, productViewSize.width, productViewSize.height);
+    btnProduct.frame=CGRectMake(left , nextTop, productViewSize.width, productViewSize.height);
     
-    nextTop=CGRectGetMaxY(self.viewProduct.frame)+Product_Time_Distance;
+    nextTop=CGRectGetMaxY(self.btnProduct.frame)+Product_Time_Distance;
     CGSize timeLabelSize=[WishTableViewCell timeLabelSize:self.wish width:width];
     labelTime.frame=CGRectMake(left, nextTop, timeLabelSize.width,timeLabelSize.height);
+    
+    CGRect productImageRect=CGRectInset(btnProduct.bounds, ProductViewInnerMargin, ProductViewInnerMargin);
+    productImageRect.size.width=productImageRect.size.height;
+   
+    
+    CGRect productLabelRect=CGRectInset(btnProduct.bounds, ProductViewInnerMargin, ProductViewInnerMargin);
+    left=CGRectGetMaxX(productImageRect)+ProductViewInnerMargin;
+    productLabelRect.origin.x=left;
+    productLabelRect.size.width=CGRectGetWidth(btnProduct.frame)-CGRectGetWidth(productImageRect)-3*ProductViewInnerMargin;
+
+
+    CGFloat imageRightInset=CGRectGetWidth(btnProduct.frame)-CGRectGetMaxX(productImageRect);
+    [btnProduct setImageEdgeInsets:UIEdgeInsetsMake(ProductViewInnerMargin ,ProductViewInnerMargin ,ProductViewInnerMargin, imageRightInset)];
+    
+    [btnProduct setTitleEdgeInsets:UIEdgeInsetsMake(ProductViewInnerMargin, -120, ProductViewInnerMargin, ProductViewInnerMargin)];
+    
     
 }
 -(void)initSubviews{
@@ -187,19 +205,19 @@
     [self.contentView addSubview:labelWishText];
     
     imageViewWish=[[UIImageView alloc]initWithFrame:CGRectZero];
+    imageViewWish.userInteractionEnabled=NO;
     imageViewWish.backgroundColor=[UIColor redColor];
     [self.contentView addSubview:imageViewWish];
     
-    viewProduct=[[UIView alloc]initWithFrame:CGRectZero];
-    viewProduct.backgroundColor=[UIColor blueColor];
-    [self.contentView addSubview:viewProduct];
+    btnProduct=[[UIButton alloc]initWithFrame:CGRectZero];
+    btnProduct.backgroundColor=[UIColor grayColor];
+    btnProduct.titleLabel.lineBreakMode=NSLineBreakByWordWrapping;
+    btnProduct.titleLabel.numberOfLines=2;
+    [btnProduct addTarget:self action:@selector(productButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
    
-    labelProductText=[[UILabel alloc]initWithFrame:CGRectZero];
-    labelProductText.font=[UIFont systemFontOfSize:ProductTextFontSize];
-    [viewProduct addSubview:labelProductText];
-    
-    imageViewProduct=[[UIImageView alloc]initWithFrame:CGRectZero];
-    [viewProduct addSubview:imageViewProduct];
+    [self.contentView addSubview:btnProduct];
+   
+
     labelTime=[[UILabel alloc]initWithFrame:CGRectZero];
     labelTime.font=[UIFont systemFontOfSize:TimeFontSize];
     labelTime.textColor=[UIColor blueColor];
@@ -214,9 +232,10 @@
    
     CGFloat rightHeight=Header_UserButton_Distance;
     //CGSize sz=[wish.user.nickName sizeWithFont:[UIFont systemFontOfSize:UserButtonFontSize]];
-    CGSize sz=[WishTableViewCell textSize:wish.user.nickName width:rightWidth font:[UIFont systemFontOfSize:UserButtonFontSize]];
+    //CGSize sz=[WishTableViewCell textSize:wish.user.nickName width:rightWidth font:[UIFont systemFontOfSize:UserButtonFontSize]];
+    CGSize sz=[WishTableViewCell userNameButtonSize:wish.user.nickName width:rightWidth font:[UIFont systemFontOfSize:UserButtonFontSize]];
     rightHeight+=sz.height+User_WishText_Distance;
-    //sz=[WishTableViewCell wishTextSize:wish width:rightWidth font:[UIFont systemFontOfSize:WishTextFontSize]];
+    sz=[WishTableViewCell wishTextSize:wish width:rightWidth font:[UIFont systemFontOfSize:WishTextFontSize]];
     
     rightHeight+=sz.height;
     
@@ -245,28 +264,50 @@
     return CGSizeMake(width,PRODUCT_HEIGHT);
 }
 +(CGSize)timeLabelSize:(Wish*)wish width:(CGFloat)width {
-    //return [wish.time sizeWithFont:[UIFont systemFontOfSize:TimeFontSize]];
-    return [WishTableViewCell textSize:wish.time width:width font:[UIFont systemFontOfSize:TimeFontSize]];
+    return [wish.time sizeWithFont:[UIFont systemFontOfSize:TimeFontSize]];
+    //return [WishTableViewCell textSize:wish.time width:width font:[UIFont systemFontOfSize:TimeFontSize]];
 }
 
 +(CGSize)textSize:(NSString*)text width:(NSInteger)width font:(UIFont*)font{
     if (0==[text length]) {
         return CGSizeZero;
     }
-    NSDictionary*attriDict=[NSDictionary dictionaryWithObject:NSFontAttributeName forKey:font];
-    NSAttributedString*attriString=[[NSAttributedString alloc]initWithString:text attributes:attriDict];
+    NSMutableDictionary*attriDict=[NSMutableDictionary dictionaryWithObject:NSFontAttributeName forKey:font];
+    
+    NSMutableParagraphStyle *titleParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    //titleParagraphStyle.lineHeightMultiple = 0.9f;
+    titleParagraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    //titleParagraphStyle.tailIndent=10;
+    //titleParagraphStyle.headIndent=12;
+    
+    [attriDict setObject:titleParagraphStyle forKey:NSParagraphStyleAttributeName];
+    
+    NSMutableAttributedString*attriString=[[NSMutableAttributedString alloc]initWithString:text attributes:attriDict];
+    
     
     CGSize constraintSize=CGSizeMake(width, MAXFLOAT);
     CGRect rect=[attriString boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil];
     [attriString release];
     return  rect.size;
 }
++(CGSize)userNameButtonSize:(NSString*)userName width:(CGFloat)width font:(UIFont*)font{
+    NSAssert([userName length]>0, @"User name should not be nil");
+    CGSize sz=CGSizeZero;
+    sz=[WishTableViewCell textSize:userName width:width font:[UIFont systemFontOfSize:WishTextFontSize]];
+    sz=[userName sizeWithFont: font constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    return sz;
+    //return [WishTableViewCell textSize:userName width:width font:[UIFont systemFontOfSize:WishTextFontSize]];
+}
 +(CGSize)wishTextSize:(Wish*)wish width:(NSInteger)width font:(UIFont*)font{
    
-    return [WishTableViewCell textSize:wish.text width:width font:[UIFont systemFontOfSize:WishTextFontSize]];
+    //return [WishTableViewCell textSize:wish.text width:width font:[UIFont systemFontOfSize:WishTextFontSize]];
     //CGSize sz=[wish.text sizeWithAttributes:attriDict];
     CGSize sz=[wish.text sizeWithFont:font constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
     return sz;
+}
+
+-(IBAction)productButtonClicked:(id)sender{
+    
 }
 
 
