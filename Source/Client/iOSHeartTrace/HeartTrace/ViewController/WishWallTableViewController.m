@@ -20,6 +20,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 #import "ImageNameConst.h"
+#import "AddWishViewController.h"
 
 
 
@@ -34,6 +35,7 @@
 
 -(void)presentLoadingView;
 -(void)startRequestWishPage:(NSInteger)pageIndex;
+-(IBAction)addWishButtonClicked:(id)sender;
 @end
 
 @implementation WishWallTableViewController
@@ -47,6 +49,10 @@
         // Custom initialization
         self.title=NSLocalizedString(@"WishWallTitle", nil);
         wishPage=[[ElementsContainer alloc]init];
+        UIBarButtonItem*addBarBbuttonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addWishButtonClicked:)];
+        self.navigationItem.rightBarButtonItem=addBarBbuttonItem;
+        
+        [addBarBbuttonItem release];
         
     }
     return self;
@@ -181,6 +187,13 @@
 -(void)requestStarted:(ASIHTTPRequest *)request{
     NSLog(@"Request started");
     
+}
+#pragma mark -- action messages
+
+-(IBAction)addWishButtonClicked:(id)sender{
+    AddWishViewController*awvc=[[AddWishViewController alloc]init];
+    [self.navigationController pushViewController:awvc animated:YES];
+    [awvc release];
 }
 
 #pragma mark -- private messages
