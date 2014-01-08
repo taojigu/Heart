@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE042229187D2F2700450137 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CE042228187D2F2700450137 /* HMSegmentedControl.m */; };
+		CE042230187D310800450137 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE04222E187D310800450137 /* ProductDetailViewController.m */; };
+		CE042231187D310800450137 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE04222F187D310800450137 /* ProductDetailViewController.xib */; };
+		CE042235187D37E900450137 /* AddWishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE042233187D37E800450137 /* AddWishViewController.m */; };
+		CE042236187D37E900450137 /* AddWishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE042234187D37E900450137 /* AddWishViewController.xib */; };
+		CE042238187D3B2200450137 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE042237187D3B2200450137 /* QuartzCore.framework */; };
 		CE12834D186D5B47000D9A2A /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12834C186D5B47000D9A2A /* Wish.m */; };
 		CE128350186D5B65000D9A2A /* ElementsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12834F186D5B65000D9A2A /* ElementsContainer.m */; };
 		CE128353186D5BF5000D9A2A /* WishPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128352186D5BF5000D9A2A /* WishPageParser.m */; };
@@ -100,6 +106,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE042227187D2F2700450137 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMSegmentedControl.h; path = View/CustomView/HMSegmentedControl.h; sourceTree = "<group>"; };
+		CE042228187D2F2700450137 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMSegmentedControl.m; path = View/CustomView/HMSegmentedControl.m; sourceTree = "<group>"; };
+		CE04222D187D310800450137 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailViewController.h; path = ViewController/ProductDetailViewController.h; sourceTree = "<group>"; };
+		CE04222E187D310800450137 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailViewController.m; path = ViewController/ProductDetailViewController.m; sourceTree = "<group>"; };
+		CE04222F187D310800450137 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductDetailViewController.xib; path = ViewController/ProductDetailViewController.xib; sourceTree = "<group>"; };
+		CE042232187D37E800450137 /* AddWishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddWishViewController.h; path = ViewController/AddWishViewController.h; sourceTree = "<group>"; };
+		CE042233187D37E800450137 /* AddWishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddWishViewController.m; path = ViewController/AddWishViewController.m; sourceTree = "<group>"; };
+		CE042234187D37E900450137 /* AddWishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddWishViewController.xib; path = ViewController/AddWishViewController.xib; sourceTree = "<group>"; };
+		CE042237187D3B2200450137 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE12834B186D5B47000D9A2A /* Wish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wish.h; path = Model/Wish.h; sourceTree = "<group>"; };
 		CE12834C186D5B47000D9A2A /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		CE12834E186D5B65000D9A2A /* ElementsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElementsContainer.h; path = Model/ElementsContainer.h; sourceTree = "<group>"; };
@@ -110,8 +125,8 @@
 		CE128357186D6F77000D9A2A /* WishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewCell.m; path = View/Cell/WishTableViewCell.m; sourceTree = "<group>"; };
 		CE128359186D74FF000D9A2A /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewUtility.h; path = Util/CustomUtil/ViewUtility.h; sourceTree = "<group>"; };
 		CE12835A186D74FF000D9A2A /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtility.m; path = Util/CustomUtil/ViewUtility.m; sourceTree = "<group>"; };
-		CE6E2417187BE1EB001672E6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/profile.jpeg"; sourceTree = "<group>"; };
-		CE6E2419187BE232001672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/profile.jpeg; sourceTree = "<group>"; };
+		CE6E2417187BE1EB001672E6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "zh-Hans"; path = "zh-Hans.lproj/profile.jpeg"; sourceTree = "<group>"; };
+		CE6E2419187BE232001672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = en; path = en.lproj/profile.jpeg; sourceTree = "<group>"; };
 		CE6E241A187BE337001672E6 /* ImageNameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageNameConst.h; path = Configure/ImageNameConst.h; sourceTree = "<group>"; };
 		CEA1BC601864490E00C659DA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		CEA1BC621864491600C659DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -258,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE042238187D3B2200450137 /* QuartzCore.framework in Frameworks */,
 				CEC187F6187267470045AFA4 /* MapKit.framework in Frameworks */,
 				CEC187F41872672E0045AFA4 /* ImageIO.framework in Frameworks */,
 				CEC187F2187267040045AFA4 /* CoreImage.framework in Frameworks */,
@@ -285,6 +301,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE042221187D2EE100450137 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				CE042227187D2F2700450137 /* HMSegmentedControl.h */,
+				CE042228187D2F2700450137 /* HMSegmentedControl.m */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
 		CE12834A186D5B15000D9A2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +334,7 @@
 		CE128354186D6EFD000D9A2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE042221187D2EE100450137 /* CustomView */,
 				CE128355186D6F37000D9A2A /* Cell */,
 			);
 			name = View;
@@ -355,6 +381,12 @@
 				CEB463901868355C00452BD2 /* WishWallTableViewController.h */,
 				CEB463911868355C00452BD2 /* WishWallTableViewController.m */,
 				CEB463921868355C00452BD2 /* WishWallTableViewController.xib */,
+				CE04222D187D310800450137 /* ProductDetailViewController.h */,
+				CE04222E187D310800450137 /* ProductDetailViewController.m */,
+				CE04222F187D310800450137 /* ProductDetailViewController.xib */,
+				CE042232187D37E800450137 /* AddWishViewController.h */,
+				CE042233187D37E800450137 /* AddWishViewController.m */,
+				CE042234187D37E900450137 /* AddWishViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -420,6 +452,7 @@
 		CEF5D53A186447A1005E4859 = {
 			isa = PBXGroup;
 			children = (
+				CE042237187D3B2200450137 /* QuartzCore.framework */,
 				CEC187F5187267470045AFA4 /* MapKit.framework */,
 				CEC187F31872672D0045AFA4 /* ImageIO.framework */,
 				CEC187F1187267040045AFA4 /* CoreImage.framework */,
@@ -709,6 +742,8 @@
 				CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */,
 				CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */,
 				CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */,
+				CE042231187D310800450137 /* ProductDetailViewController.xib in Resources */,
+				CE042236187D37E900450137 /* AddWishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +833,9 @@
 				CEC187F0187265450045AFA4 /* UIImageView+WebCache.m in Sources */,
 				CEC187F91872A7AA0045AFA4 /* FakeDataFactory.m in Sources */,
 				CED6B34118769FB6004679F7 /* ImageInfo.m in Sources */,
+				CE042229187D2F2700450137 /* HMSegmentedControl.m in Sources */,
+				CE042230187D310800450137 /* ProductDetailViewController.m in Sources */,
+				CE042235187D37E900450137 /* AddWishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
