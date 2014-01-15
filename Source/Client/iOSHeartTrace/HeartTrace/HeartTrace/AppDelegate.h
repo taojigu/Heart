@@ -11,7 +11,6 @@
 @protocol IntroductionViewCotrollerDelegate;
 
 
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate,ASIHTTPRequestDelegate,IntroductionViewCotrollerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

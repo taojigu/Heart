@@ -10,6 +10,6 @@
 
 
 
-@interface AddWishViewController : UIViewController<UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface AddWishViewController : UIViewController<UITextViewDelegate>
 
 @end

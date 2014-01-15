@@ -9,6 +9,9 @@
 #import "AddWishViewController.h"
 #import "BrowseViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ImageCollectionViewController.h"
+#import "ImageNameConst.h"
+
 
 #define HorizontalMargin 10
 #define ViewDistance 10
@@ -18,7 +21,9 @@
 #define CollectionVeiwImageHeight 200
 
 #define CollectionViewImageMargin 5
-#define CollectionViewCellLength 20
+#define CollectionViewCellLength 60
+
+
 
 
 @interface AddWishViewController (){
@@ -26,8 +31,9 @@
     IBOutlet UIScrollView*scrollView;
     IBOutlet UITableViewCell*cellSelectProduct;
     IBOutlet UITextView*wishTextView;
-    IBOutlet UICollectionView*collectionViewImage;
+    //IBOutlet UICollectionView*collectionViewImage;
     IBOutlet UISegmentedControl*segmentControl;
+    ImageCollectionViewController*imageCollecitonViewController;
     
     CGFloat subViewWidth;
     
@@ -57,6 +63,10 @@
         NSMutableArray*tmpArray=[[NSMutableArray alloc]init];
         self.imageArray=tmpArray;
         [tmpArray release];
+        
+        UIBarButtonItem*barButtonSubmit=[[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"SubmitText", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(submitButtonClicked:)];
+        self.navigationItem.rightBarButtonItem=barButtonSubmit;
+        [barButtonSubmit release];
     }
     return self;
 }
@@ -119,44 +129,13 @@
     return YES;
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin);
-}
-
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(CollectionViewCellLength, CollectionViewCellLength);
-}
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return MAX(9, [self.imageArray count]+1);
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"collection cell did selected");
-}
-
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString*imageCellIdentifer=@"imageCellIdentifer";
-    UICollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:imageCellIdentifer forIndexPath:indexPath];
-    if (nil==cell) {
-        cell=[[[UICollectionViewCell alloc]init]autorelease];
-    }
-    
-    
-    return  cell;
-}
-
 
 #pragma mark -- private messages
 
 -(void)configureDefaults{
     [scrollView addSubview:segmentControl];
     [scrollView addSubview:wishTextView];
-    [scrollView addSubview:collectionViewImage];
+    //[scrollView addSubview:collectionViewImage];
     [scrollView addSubview:cellSelectProduct];
     segmentControl.selectedSegmentIndex=0;
     cellSelectProduct.layer.cornerRadius=8;
@@ -168,6 +147,16 @@
     [recognizer release];
     
     subViewWidth=CGRectGetWidth(self.view.frame)-HorizontalMargin*2;
+    //collectionViewImage.hidden=YES;
+    UICollectionViewFlowLayout*imageLayout=[[UICollectionViewFlowLayout alloc]init];
+    imageLayout.itemSize=CGSizeMake(CollectionViewCellLength,CollectionViewCellLength);
+    imageLayout.minimumInteritemSpacing=CollectionViewImageMargin;
+    imageLayout.minimumLineSpacing=CollectionViewImageMargin;
+    imageLayout.sectionInset=UIEdgeInsetsMake(CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin);
+    imageCollecitonViewController=[[ImageCollectionViewController alloc]initWithCollectionViewLayout:imageLayout];
+    imageCollecitonViewController.addCellImage=[UIImage imageNamed:ProfileHeaderJpeg];
+    [imageLayout release];
+    [scrollView addSubview:imageCollecitonViewController.view];
 
 }
 -(void)refreshLayout{
@@ -191,10 +180,11 @@
 }
 -(void)layoutImageCollectionView{
     CGRect rect=CGRectMake(HorizontalMargin, CGRectGetMaxY(wishTextView.frame)+ViewDistance,subViewWidth,CollectionVeiwImageHeight);
-    collectionViewImage.frame=rect;
+    //collectionViewImage.frame=rect;
+    imageCollecitonViewController.view.frame=rect;
 }
 -(void)layoutProductCell{
-    CGRect rect=CGRectMake(HorizontalMargin, CGRectGetMaxY(collectionViewImage.frame)+ViewDistance,subViewWidth, CellProductHeight);
+    CGRect rect=CGRectMake(HorizontalMargin, CGRectGetMaxY(imageCollecitonViewController.view.frame)+ViewDistance,subViewWidth, CellProductHeight);
     cellSelectProduct.frame=rect;
 }
 -(void)resetTextViewPlaceHolder:(BOOL)placeHolderPattern{
@@ -216,6 +206,10 @@
     [self.navigationController pushViewController:brvc animated:YES];
     [brvc release];
     cellSelectProduct.selected=NO;
+}
+
+-(void)submitButtonClicked:(id)sender{
+     
 }
 
 @end
