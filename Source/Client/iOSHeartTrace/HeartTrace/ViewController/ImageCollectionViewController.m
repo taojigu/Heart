@@ -7,7 +7,8 @@
 //
 
 #import "ImageCollectionViewController.h"
-#import "ImageNameConst.h"
+
+#import "QBImagePickerController.h"
 
 #define MaxImageAmount 9
 
@@ -24,18 +25,18 @@
 
 @synthesize imageArray;
 @synthesize addCellImage;
+@synthesize mainViewController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+-(id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout{
+    self=[super initWithCollectionViewLayout:layout];
     if (self) {
-        // Custom initialization
-        self.imageArray=[NSMutableArray arrayWithObjects:nil];
-        
-       
+        NSMutableArray*tmpArray=[[NSMutableArray alloc]init];
+        self.imageArray=tmpArray;
+        [tmpArray release];
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -52,6 +53,7 @@
 }
 
 -(void)dealloc{
+    [self.mainViewController release];
     [self.imageArray release];
     [self.addCellImage release];
     [super dealloc];
@@ -63,12 +65,17 @@
     return 1;
 }
 
-
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
   
     if (([self.imageArray count]==indexPath.row)&&(MaxImageAmount!=[self.imageArray count])){
         NSLog(@"Present Image Add ViewController");
+        QBImagePickerController*qpvc=[[QBImagePickerController alloc]init];
+        qpvc.delegate=self;
+        qpvc.allowsMultipleSelection=YES;
+        qpvc.limitsMaximumNumberOfSelection=YES;
+        qpvc.maximumNumberOfSelection=MaxImageAmount-[self.imageArray count];
+        [self.mainViewController.navigationController pushViewController:qpvc animated:YES];
+        [qpvc release];
     }
     else{
         NSLog(@"Present Image Browse ViewController");
@@ -77,8 +84,8 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.imageArray count]+1;
-}
+    return MIN(MaxImageAmount, [self.imageArray count]+1);
+} 
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -97,6 +104,21 @@
     }
     
     return  cell;
+}
+
+#pragma mark -- QBImagePickerControllerDelegate messages
+
+-(void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info{
+    
+    NSArray*dictArray=(NSArray*)info;
+    for (NSDictionary*dict in dictArray) {
+        UIImage*image=[dict valueForKey:MediaInfoKeyOrigianlImage];
+        [self.imageArray addObject:image];
+    }
+
+   
+    [imagePickerController.navigationController popToViewController:self.mainViewController animated:YES];
+    [self.collectionView reloadData];
 }
 
 

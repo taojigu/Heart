@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QBImagePickerControllerDelegate;
+
 @protocol ImageCollectionViewControllerDelegate <NSObject>
 
 
@@ -15,7 +17,7 @@
 @end
 
 
-@interface ImageCollectionViewController : UICollectionViewController{
+@interface ImageCollectionViewController : UICollectionViewController<QBImagePickerControllerDelegate>{
 
 }
 
@@ -24,5 +26,6 @@
 
 @property(nonatomic,retain)UIImage*addCellImage;
 @property(nonatomic,retain)NSMutableArray*imageArray;
+@property(nonatomic,retain)UIViewController*mainViewController;
 
 @end

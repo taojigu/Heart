@@ -155,6 +155,7 @@
     imageLayout.sectionInset=UIEdgeInsetsMake(CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin);
     imageCollecitonViewController=[[ImageCollectionViewController alloc]initWithCollectionViewLayout:imageLayout];
     imageCollecitonViewController.addCellImage=[UIImage imageNamed:ProfileHeaderJpeg];
+    imageCollecitonViewController.mainViewController=self;
     [imageLayout release];
     [scrollView addSubview:imageCollecitonViewController.view];
 

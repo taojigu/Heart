@@ -59,6 +59,15 @@
 		CEC187F6187267470045AFA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC187F5187267470045AFA4 /* MapKit.framework */; };
 		CEC187F91872A7AA0045AFA4 /* FakeDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */; };
 		CED6B34118769FB6004679F7 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CED6B34018769FB6004679F7 /* ImageInfo.m */; };
+		CEF524DF18877A7F0063E830 /* QBAssetCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524CE18877A7F0063E830 /* QBAssetCollectionViewController.m */; };
+		CEF524E018877A7F0063E830 /* QBImagePickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524D118877A7F0063E830 /* QBImagePickerAssetCell.m */; };
+		CEF524E118877A7F0063E830 /* QBImagePickerAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524D418877A7F0063E830 /* QBImagePickerAssetView.m */; };
+		CEF524E218877A7F0063E830 /* QBImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEF524D618877A7F0063E830 /* QBImagePickerController.bundle */; };
+		CEF524E318877A7F0063E830 /* QBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524D818877A7F0063E830 /* QBImagePickerController.m */; };
+		CEF524E418877A7F0063E830 /* QBImagePickerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524DA18877A7F0063E830 /* QBImagePickerFooterView.m */; };
+		CEF524E518877A7F0063E830 /* QBImagePickerGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524DC18877A7F0063E830 /* QBImagePickerGroupCell.m */; };
+		CEF524E618877A7F0063E830 /* QBImagePickerVideoInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524DE18877A7F0063E830 /* QBImagePickerVideoInfoView.m */; };
+		CEF524E818877B180063E830 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF524E718877B180063E830 /* AssetsLibrary.framework */; };
 		CEF5D547186447A1005E4859 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D546186447A1005E4859 /* UIKit.framework */; };
 		CEF5D549186447A1005E4859 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D548186447A1005E4859 /* Foundation.framework */; };
 		CEF5D54B186447A1005E4859 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5D54A186447A1005E4859 /* CoreGraphics.framework */; };
@@ -203,6 +212,25 @@
 		CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeDataFactory.m; path = Util/CustomUtil/FakeDataFactory.m; sourceTree = "<group>"; };
 		CED6B33F18769FB6004679F7 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageInfo.h; path = Model/ImageInfo.h; sourceTree = "<group>"; };
 		CED6B34018769FB6004679F7 /* ImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageInfo.m; path = Model/ImageInfo.m; sourceTree = "<group>"; };
+		CEF524CD18877A7F0063E830 /* QBAssetCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBAssetCollectionViewController.h; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewController.h; sourceTree = "<group>"; };
+		CEF524CE18877A7F0063E830 /* QBAssetCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBAssetCollectionViewController.m; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewController.m; sourceTree = "<group>"; };
+		CEF524CF18877A7F0063E830 /* QBAssetCollectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBAssetCollectionViewControllerDelegate.h; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewControllerDelegate.h; sourceTree = "<group>"; };
+		CEF524D018877A7F0063E830 /* QBImagePickerAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerAssetCell.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetCell.h; sourceTree = "<group>"; };
+		CEF524D118877A7F0063E830 /* QBImagePickerAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerAssetCell.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetCell.m; sourceTree = "<group>"; };
+		CEF524D218877A7F0063E830 /* QBImagePickerAssetCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerAssetCellDelegate.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetCellDelegate.h; sourceTree = "<group>"; };
+		CEF524D318877A7F0063E830 /* QBImagePickerAssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerAssetView.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetView.h; sourceTree = "<group>"; };
+		CEF524D418877A7F0063E830 /* QBImagePickerAssetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerAssetView.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetView.m; sourceTree = "<group>"; };
+		CEF524D518877A7F0063E830 /* QBImagePickerAssetViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerAssetViewDelegate.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerAssetViewDelegate.h; sourceTree = "<group>"; };
+		CEF524D618877A7F0063E830 /* QBImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QBImagePickerController.bundle; path = Util/ViewController/QBImagePickerViewController/QBImagePickerController.bundle; sourceTree = "<group>"; };
+		CEF524D718877A7F0063E830 /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerController.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerController.h; sourceTree = "<group>"; };
+		CEF524D818877A7F0063E830 /* QBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerController.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerController.m; sourceTree = "<group>"; };
+		CEF524D918877A7F0063E830 /* QBImagePickerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerFooterView.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerFooterView.h; sourceTree = "<group>"; };
+		CEF524DA18877A7F0063E830 /* QBImagePickerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerFooterView.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerFooterView.m; sourceTree = "<group>"; };
+		CEF524DB18877A7F0063E830 /* QBImagePickerGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerGroupCell.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerGroupCell.h; sourceTree = "<group>"; };
+		CEF524DC18877A7F0063E830 /* QBImagePickerGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerGroupCell.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerGroupCell.m; sourceTree = "<group>"; };
+		CEF524DD18877A7F0063E830 /* QBImagePickerVideoInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerVideoInfoView.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerVideoInfoView.h; sourceTree = "<group>"; };
+		CEF524DE18877A7F0063E830 /* QBImagePickerVideoInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerVideoInfoView.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerVideoInfoView.m; sourceTree = "<group>"; };
+		CEF524E718877B180063E830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		CEF5D543186447A1005E4859 /* HeartTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5D546186447A1005E4859 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF5D548186447A1005E4859 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -280,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF524E818877B180063E830 /* AssetsLibrary.framework in Frameworks */,
 				CE042238187D3B2200450137 /* QuartzCore.framework in Frameworks */,
 				CEC187F6187267470045AFA4 /* MapKit.framework in Frameworks */,
 				CEC187F41872672E0045AFA4 /* ImageIO.framework in Frameworks */,
@@ -460,9 +489,43 @@
 			name = SDWebImage;
 			sourceTree = "<group>";
 		};
+		CEF524B1188779FD0063E830 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEF524B218877A0A0063E830 /* QBImagePickerViewController */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		CEF524B218877A0A0063E830 /* QBImagePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEF524CD18877A7F0063E830 /* QBAssetCollectionViewController.h */,
+				CEF524CE18877A7F0063E830 /* QBAssetCollectionViewController.m */,
+				CEF524CF18877A7F0063E830 /* QBAssetCollectionViewControllerDelegate.h */,
+				CEF524D018877A7F0063E830 /* QBImagePickerAssetCell.h */,
+				CEF524D118877A7F0063E830 /* QBImagePickerAssetCell.m */,
+				CEF524D218877A7F0063E830 /* QBImagePickerAssetCellDelegate.h */,
+				CEF524D318877A7F0063E830 /* QBImagePickerAssetView.h */,
+				CEF524D418877A7F0063E830 /* QBImagePickerAssetView.m */,
+				CEF524D518877A7F0063E830 /* QBImagePickerAssetViewDelegate.h */,
+				CEF524D618877A7F0063E830 /* QBImagePickerController.bundle */,
+				CEF524D718877A7F0063E830 /* QBImagePickerController.h */,
+				CEF524D818877A7F0063E830 /* QBImagePickerController.m */,
+				CEF524D918877A7F0063E830 /* QBImagePickerFooterView.h */,
+				CEF524DA18877A7F0063E830 /* QBImagePickerFooterView.m */,
+				CEF524DB18877A7F0063E830 /* QBImagePickerGroupCell.h */,
+				CEF524DC18877A7F0063E830 /* QBImagePickerGroupCell.m */,
+				CEF524DD18877A7F0063E830 /* QBImagePickerVideoInfoView.h */,
+				CEF524DE18877A7F0063E830 /* QBImagePickerVideoInfoView.m */,
+			);
+			name = QBImagePickerViewController;
+			sourceTree = "<group>";
+		};
 		CEF5D53A186447A1005E4859 = {
 			isa = PBXGroup;
 			children = (
+				CEF524E718877B180063E830 /* AssetsLibrary.framework */,
 				CE042237187D3B2200450137 /* QuartzCore.framework */,
 				CEC187F5187267470045AFA4 /* MapKit.framework */,
 				CEC187F31872672D0045AFA4 /* ImageIO.framework */,
@@ -552,6 +615,7 @@
 		CEF5D57B18644805005E4859 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CEF524B1188779FD0063E830 /* ViewController */,
 				CEC187C51872652D0045AFA4 /* SDWebImage */,
 				CEC1875B187150260045AFA4 /* Category */,
 				CEB46395186936A700452BD2 /* CustomUtil */,
@@ -757,6 +821,7 @@
 				CE042236187D37E900450137 /* AddWishViewController.xib in Resources */,
 				CE9BAEC51883835600B98B64 /* ImageCollectionViewController.xib in Resources */,
 				CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */,
+				CEF524E218877A7F0063E830 /* QBImagePickerController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +915,13 @@
 				CE042230187D310800450137 /* ProductDetailViewController.m in Sources */,
 				CE042235187D37E900450137 /* AddWishViewController.m in Sources */,
 				CE9BAEC41883835600B98B64 /* ImageCollectionViewController.m in Sources */,
+				CEF524DF18877A7F0063E830 /* QBAssetCollectionViewController.m in Sources */,
+				CEF524E018877A7F0063E830 /* QBImagePickerAssetCell.m in Sources */,
+				CEF524E118877A7F0063E830 /* QBImagePickerAssetView.m in Sources */,
+				CEF524E318877A7F0063E830 /* QBImagePickerController.m in Sources */,
+				CEF524E418877A7F0063E830 /* QBImagePickerFooterView.m in Sources */,
+				CEF524E518877A7F0063E830 /* QBImagePickerGroupCell.m in Sources */,
+				CEF524E618877A7F0063E830 /* QBImagePickerVideoInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
