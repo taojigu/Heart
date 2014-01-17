@@ -20,8 +20,6 @@
 		CE12835B186D74FF000D9A2A /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12835A186D74FF000D9A2A /* ViewUtility.m */; };
 		CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE6E2418187BE1EB001672E6 /* profile.jpeg */; };
 		CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EAEA218867A4400ACE7A5 /* ImageCollectionViewCell.xib */; };
-		CE9BAEC41883835600B98B64 /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9BAEC21883835600B98B64 /* ImageCollectionViewController.m */; };
-		CE9BAEC51883835600B98B64 /* ImageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BAEC31883835600B98B64 /* ImageCollectionViewController.xib */; };
 		CEA1BC611864490E00C659DA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC601864490E00C659DA /* libxml2.dylib */; };
 		CEA1BC631864491600C659DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC621864491600C659DA /* MobileCoreServices.framework */; };
 		CEA1BC651864491D00C659DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC641864491D00C659DA /* SystemConfiguration.framework */; };
@@ -141,9 +139,6 @@
 		CE6E2419187BE232001672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = en; path = en.lproj/profile.jpeg; sourceTree = "<group>"; };
 		CE6E241A187BE337001672E6 /* ImageNameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageNameConst.h; path = Configure/ImageNameConst.h; sourceTree = "<group>"; };
 		CE6EAEA218867A4400ACE7A5 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageCollectionViewCell.xib; path = View/Cell/ImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		CE9BAEC11883835600B98B64 /* ImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewController.h; path = ViewController/ImageCollectionViewController.h; sourceTree = "<group>"; };
-		CE9BAEC21883835600B98B64 /* ImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewController.m; path = ViewController/ImageCollectionViewController.m; sourceTree = "<group>"; };
-		CE9BAEC31883835600B98B64 /* ImageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageCollectionViewController.xib; path = ViewController/ImageCollectionViewController.xib; sourceTree = "<group>"; };
 		CEA1BC601864490E00C659DA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		CEA1BC621864491600C659DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEA1BC641864491D00C659DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -424,9 +419,6 @@
 				CE042232187D37E800450137 /* AddWishViewController.h */,
 				CE042233187D37E800450137 /* AddWishViewController.m */,
 				CE042234187D37E900450137 /* AddWishViewController.xib */,
-				CE9BAEC11883835600B98B64 /* ImageCollectionViewController.h */,
-				CE9BAEC21883835600B98B64 /* ImageCollectionViewController.m */,
-				CE9BAEC31883835600B98B64 /* ImageCollectionViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -819,7 +811,6 @@
 				CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */,
 				CE042231187D310800450137 /* ProductDetailViewController.xib in Resources */,
 				CE042236187D37E900450137 /* AddWishViewController.xib in Resources */,
-				CE9BAEC51883835600B98B64 /* ImageCollectionViewController.xib in Resources */,
 				CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */,
 				CEF524E218877A7F0063E830 /* QBImagePickerController.bundle in Resources */,
 			);
@@ -914,7 +905,6 @@
 				CE042229187D2F2700450137 /* HMSegmentedControl.m in Sources */,
 				CE042230187D310800450137 /* ProductDetailViewController.m in Sources */,
 				CE042235187D37E900450137 /* AddWishViewController.m in Sources */,
-				CE9BAEC41883835600B98B64 /* ImageCollectionViewController.m in Sources */,
 				CEF524DF18877A7F0063E830 /* QBAssetCollectionViewController.m in Sources */,
 				CEF524E018877A7F0063E830 /* QBImagePickerAssetCell.m in Sources */,
 				CEF524E118877A7F0063E830 /* QBImagePickerAssetView.m in Sources */,

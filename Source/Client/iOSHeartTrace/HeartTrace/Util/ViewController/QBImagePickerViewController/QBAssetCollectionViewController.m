@@ -68,9 +68,9 @@
     
     if(self.fullScreenLayoutEnabled) {
         // Set bar styles
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        self.navigationController.navigationBar.translucent = YES;
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:NO];
+        //self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+        //self.navigationController.navigationBar.translucent = YES;
+       //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:NO];
         
         CGFloat top = 0;
         if(![[UIApplication sharedApplication] isStatusBarHidden]) top = top + 20;
@@ -440,7 +440,7 @@
     }
 
     if (!canSelect) {
-        NSString*titleString=[NSString stringWithFormat:@"Selecte Image"];
+        NSString*titleString=[NSString stringWithFormat:@"Select Image"];
         NSString*msgString=[NSString stringWithFormat:@"Only %i more image could be selected",self.maximumNumberOfSelection];
         UIAlertView*alertView=[[UIAlertView alloc]initWithTitle:titleString message:msgString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
