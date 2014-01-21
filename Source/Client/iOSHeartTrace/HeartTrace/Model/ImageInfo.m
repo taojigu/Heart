@@ -17,12 +17,14 @@
 @synthesize height;
 @synthesize imageUrlString;
 @synthesize introduction;
+@synthesize image;
 
 -(void)dealloc{
     [self.imageId release];
     [self.imageName release];
     [self.imageUrlString release];
     [self.introduction release];
+    [self.image release];
     [super dealloc];
 }
 +(ImageInfo*)fakeImageInfo:(NSInteger)imageIndex{
@@ -34,7 +36,11 @@
     result.introduction=[NSString stringWithFormat:@"The image introduction for the image %i",imageIndex];
     return result;
 }
-
++(ImageInfo*)imageInfoFromImage:(UIImage*)image{
+    ImageInfo*info=[[[ImageInfo alloc]init]autorelease];
+    info.image=image;
+    return info;
+}
 
 
 @end

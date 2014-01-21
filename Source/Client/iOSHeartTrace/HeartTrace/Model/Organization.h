@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class ElementsContainer;
 
 @interface Organization : NSObject
 
 @property(nonatomic,retain)NSString*organizationId;
 @property(nonatomic,retain)NSString*name;
+@property(nonatomic,retain)ElementsContainer*productElementContainer;
+
++(Organization*)fakeOrganization:(NSInteger)index;
 
 
 @end

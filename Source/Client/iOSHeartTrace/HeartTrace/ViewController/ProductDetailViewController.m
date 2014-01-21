@@ -7,6 +7,7 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "BrowseTableViewController.h"
 
 @interface ProductDetailViewController (){
     @private
@@ -45,7 +46,7 @@
 
 #pragma mark -- action messages
 -(IBAction)buttonProudctClicked:(id)sender{
-    
+
 }
 
 @end

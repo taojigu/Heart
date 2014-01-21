@@ -28,8 +28,6 @@
 		CEB463761867DE7B00452BD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEB463781867DE7B00452BD2 /* Localizable.strings */; };
 		CEB4638118680EC900452BD2 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4637F18680EC900452BD2 /* IntroductionViewController.m */; };
 		CEB4638218680EC900452BD2 /* IntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4638018680EC900452BD2 /* IntroductionViewController.xib */; };
-		CEB4638B18681D8D00452BD2 /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4638918681D8D00452BD2 /* BrowseViewController.m */; };
-		CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */; };
 		CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4638E18681DEA00452BD2 /* AccoutViewController.m */; };
 		CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB463911868355C00452BD2 /* WishWallTableViewController.m */; };
 		CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB463921868355C00452BD2 /* WishWallTableViewController.xib */; };
@@ -57,6 +55,11 @@
 		CEC187F6187267470045AFA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC187F5187267470045AFA4 /* MapKit.framework */; };
 		CEC187F91872A7AA0045AFA4 /* FakeDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */; };
 		CED6B34118769FB6004679F7 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CED6B34018769FB6004679F7 /* ImageInfo.m */; };
+		CEEEAF49188D12BA00F288E7 /* BrowseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAF47188D12BA00F288E7 /* BrowseTableViewController.m */; };
+		CEEEAF4A188D12BA00F288E7 /* BrowseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEEAF48188D12BA00F288E7 /* BrowseTableViewController.xib */; };
+		CEEEAF52188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAF51188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m */; };
+		CEEEAF56188E560100F288E7 /* ProductPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAF55188E560100F288E7 /* ProductPageParser.m */; };
+		CEEEAF59188E561B00F288E7 /* OrganizationPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAF58188E561B00F288E7 /* OrganizationPageParser.m */; };
 		CEF524DF18877A7F0063E830 /* QBAssetCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524CE18877A7F0063E830 /* QBAssetCollectionViewController.m */; };
 		CEF524E018877A7F0063E830 /* QBImagePickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524D118877A7F0063E830 /* QBImagePickerAssetCell.m */; };
 		CEF524E118877A7F0063E830 /* QBImagePickerAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF524D418877A7F0063E830 /* QBImagePickerAssetView.m */; };
@@ -153,9 +156,6 @@
 		CEB4637E18680EC900452BD2 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroductionViewController.h; path = ViewController/IntroductionViewController.h; sourceTree = "<group>"; };
 		CEB4637F18680EC900452BD2 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroductionViewController.m; path = ViewController/IntroductionViewController.m; sourceTree = "<group>"; };
 		CEB4638018680EC900452BD2 /* IntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IntroductionViewController.xib; path = ViewController/IntroductionViewController.xib; sourceTree = "<group>"; };
-		CEB4638818681D8D00452BD2 /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseViewController.h; path = ViewController/BrowseViewController.h; sourceTree = "<group>"; };
-		CEB4638918681D8D00452BD2 /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseViewController.m; path = ViewController/BrowseViewController.m; sourceTree = "<group>"; };
-		CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BrowseViewController.xib; path = ViewController/BrowseViewController.xib; sourceTree = "<group>"; };
 		CEB4638D18681DEA00452BD2 /* AccoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccoutViewController.h; path = ViewController/AccoutViewController.h; sourceTree = "<group>"; };
 		CEB4638E18681DEA00452BD2 /* AccoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccoutViewController.m; path = ViewController/AccoutViewController.m; sourceTree = "<group>"; };
 		CEB463901868355C00452BD2 /* WishWallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishWallTableViewController.h; path = ViewController/WishWallTableViewController.h; sourceTree = "<group>"; };
@@ -207,6 +207,15 @@
 		CEC187F81872A7AA0045AFA4 /* FakeDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeDataFactory.m; path = Util/CustomUtil/FakeDataFactory.m; sourceTree = "<group>"; };
 		CED6B33F18769FB6004679F7 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageInfo.h; path = Model/ImageInfo.h; sourceTree = "<group>"; };
 		CED6B34018769FB6004679F7 /* ImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageInfo.m; path = Model/ImageInfo.m; sourceTree = "<group>"; };
+		CEEEAF46188D12BA00F288E7 /* BrowseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseTableViewController.h; path = ViewController/BrowseTableViewController.h; sourceTree = "<group>"; };
+		CEEEAF47188D12BA00F288E7 /* BrowseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseTableViewController.m; path = ViewController/BrowseTableViewController.m; sourceTree = "<group>"; };
+		CEEEAF48188D12BA00F288E7 /* BrowseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BrowseTableViewController.xib; path = ViewController/BrowseTableViewController.xib; sourceTree = "<group>"; };
+		CEEEAF50188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ASIHTTPRequest+RequestIdentify.h"; path = "Util/Category/ASIHTTPRequest+RequestIdentify.h"; sourceTree = "<group>"; };
+		CEEEAF51188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ASIHTTPRequest+RequestIdentify.m"; path = "Util/Category/ASIHTTPRequest+RequestIdentify.m"; sourceTree = "<group>"; };
+		CEEEAF54188E560100F288E7 /* ProductPageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductPageParser.h; path = Model/ProductPageParser.h; sourceTree = "<group>"; };
+		CEEEAF55188E560100F288E7 /* ProductPageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductPageParser.m; path = Model/ProductPageParser.m; sourceTree = "<group>"; };
+		CEEEAF57188E561B00F288E7 /* OrganizationPageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrganizationPageParser.h; path = Model/OrganizationPageParser.h; sourceTree = "<group>"; };
+		CEEEAF58188E561B00F288E7 /* OrganizationPageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrganizationPageParser.m; path = Model/OrganizationPageParser.m; sourceTree = "<group>"; };
 		CEF524CD18877A7F0063E830 /* QBAssetCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBAssetCollectionViewController.h; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewController.h; sourceTree = "<group>"; };
 		CEF524CE18877A7F0063E830 /* QBAssetCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBAssetCollectionViewController.m; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewController.m; sourceTree = "<group>"; };
 		CEF524CF18877A7F0063E830 /* QBAssetCollectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBAssetCollectionViewControllerDelegate.h; path = Util/ViewController/QBImagePickerViewController/QBAssetCollectionViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -226,6 +235,8 @@
 		CEF524DD18877A7F0063E830 /* QBImagePickerVideoInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImagePickerVideoInfoView.h; path = Util/ViewController/QBImagePickerViewController/QBImagePickerVideoInfoView.h; sourceTree = "<group>"; };
 		CEF524DE18877A7F0063E830 /* QBImagePickerVideoInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImagePickerVideoInfoView.m; path = Util/ViewController/QBImagePickerViewController/QBImagePickerVideoInfoView.m; sourceTree = "<group>"; };
 		CEF524E718877B180063E830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CEF524EA188CF13E0063E830 /* ModelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ModelHeader.h; path = Model/ModelHeader.h; sourceTree = "<group>"; };
+		CEF524EC188D037C0063E830 /* ProductDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductDelegate.h; path = ViewController/ProductDelegate.h; sourceTree = "<group>"; };
 		CEF5D543186447A1005E4859 /* HeartTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5D546186447A1005E4859 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF5D548186447A1005E4859 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -344,12 +355,11 @@
 		CE12834A186D5B15000D9A2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEEEAF53188E55C400F288E7 /* Parser */,
 				CE12834B186D5B47000D9A2A /* Wish.h */,
 				CE12834C186D5B47000D9A2A /* Wish.m */,
 				CE12834E186D5B65000D9A2A /* ElementsContainer.h */,
 				CE12834F186D5B65000D9A2A /* ElementsContainer.m */,
-				CE128351186D5BF5000D9A2A /* WishPageParser.h */,
-				CE128352186D5BF5000D9A2A /* WishPageParser.m */,
 				CEC187BC187156E20045AFA4 /* Product.h */,
 				CEC187BD187156E20045AFA4 /* Product.m */,
 				CEC187BF1871570F0045AFA4 /* User.h */,
@@ -358,6 +368,7 @@
 				CEC187C318715E7C0045AFA4 /* Organization.m */,
 				CED6B33F18769FB6004679F7 /* ImageInfo.h */,
 				CED6B34018769FB6004679F7 /* ImageInfo.m */,
+				CEF524EA188CF13E0063E830 /* ModelHeader.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -405,9 +416,6 @@
 				CEB4637E18680EC900452BD2 /* IntroductionViewController.h */,
 				CEB4637F18680EC900452BD2 /* IntroductionViewController.m */,
 				CEB4638018680EC900452BD2 /* IntroductionViewController.xib */,
-				CEB4638818681D8D00452BD2 /* BrowseViewController.h */,
-				CEB4638918681D8D00452BD2 /* BrowseViewController.m */,
-				CEB4638A18681D8D00452BD2 /* BrowseViewController.xib */,
 				CEB4638D18681DEA00452BD2 /* AccoutViewController.h */,
 				CEB4638E18681DEA00452BD2 /* AccoutViewController.m */,
 				CEB463901868355C00452BD2 /* WishWallTableViewController.h */,
@@ -419,6 +427,10 @@
 				CE042232187D37E800450137 /* AddWishViewController.h */,
 				CE042233187D37E800450137 /* AddWishViewController.m */,
 				CE042234187D37E900450137 /* AddWishViewController.xib */,
+				CEF524EC188D037C0063E830 /* ProductDelegate.h */,
+				CEEEAF46188D12BA00F288E7 /* BrowseTableViewController.h */,
+				CEEEAF47188D12BA00F288E7 /* BrowseTableViewController.m */,
+				CEEEAF48188D12BA00F288E7 /* BrowseTableViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -441,6 +453,8 @@
 			children = (
 				CEC187B9187150870045AFA4 /* UIImage+Resize.h */,
 				CEC187BA187150870045AFA4 /* UIImage+Resize.m */,
+				CEEEAF50188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.h */,
+				CEEEAF51188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -479,6 +493,19 @@
 				CEC187E2187265450045AFA4 /* UIImageView+WebCache.m */,
 			);
 			name = SDWebImage;
+			sourceTree = "<group>";
+		};
+		CEEEAF53188E55C400F288E7 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				CE128351186D5BF5000D9A2A /* WishPageParser.h */,
+				CE128352186D5BF5000D9A2A /* WishPageParser.m */,
+				CEEEAF54188E560100F288E7 /* ProductPageParser.h */,
+				CEEEAF55188E560100F288E7 /* ProductPageParser.m */,
+				CEEEAF57188E561B00F288E7 /* OrganizationPageParser.h */,
+				CEEEAF58188E561B00F288E7 /* OrganizationPageParser.m */,
+			);
+			name = Parser;
 			sourceTree = "<group>";
 		};
 		CEF524B1188779FD0063E830 /* ViewController */ = {
@@ -806,13 +833,13 @@
 				CEF5D55D186447A1005E4859 /* Default-568h@2x.png in Resources */,
 				CEB463761867DE7B00452BD2 /* Localizable.strings in Resources */,
 				CEB4638218680EC900452BD2 /* IntroductionViewController.xib in Resources */,
-				CEB4638C18681D8D00452BD2 /* BrowseViewController.xib in Resources */,
 				CEB463941868355C00452BD2 /* WishWallTableViewController.xib in Resources */,
 				CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */,
 				CE042231187D310800450137 /* ProductDetailViewController.xib in Resources */,
 				CE042236187D37E900450137 /* AddWishViewController.xib in Resources */,
 				CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */,
 				CEF524E218877A7F0063E830 /* QBImagePickerController.bundle in Resources */,
+				CEEEAF4A188D12BA00F288E7 /* BrowseTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,7 +900,6 @@
 				CEF5D61D1864482E005E4859 /* ASIS3ServiceRequest.m in Sources */,
 				CEF5D61E1864482E005E4859 /* Reachability.m in Sources */,
 				CEB4638118680EC900452BD2 /* IntroductionViewController.m in Sources */,
-				CEB4638B18681D8D00452BD2 /* BrowseViewController.m in Sources */,
 				CEB4638F18681DEA00452BD2 /* AccoutViewController.m in Sources */,
 				CEB463931868355C00452BD2 /* WishWallTableViewController.m in Sources */,
 				CEB46398186936D300452BD2 /* RequestURLUtility.m in Sources */,
@@ -912,6 +938,10 @@
 				CEF524E418877A7F0063E830 /* QBImagePickerFooterView.m in Sources */,
 				CEF524E518877A7F0063E830 /* QBImagePickerGroupCell.m in Sources */,
 				CEF524E618877A7F0063E830 /* QBImagePickerVideoInfoView.m in Sources */,
+				CEEEAF49188D12BA00F288E7 /* BrowseTableViewController.m in Sources */,
+				CEEEAF52188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m in Sources */,
+				CEEEAF56188E560100F288E7 /* ProductPageParser.m in Sources */,
+				CEEEAF59188E561B00F288E7 /* OrganizationPageParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

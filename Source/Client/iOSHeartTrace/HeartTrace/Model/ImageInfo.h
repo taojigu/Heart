@@ -18,7 +18,9 @@
 @property(nonatomic,assign)CGFloat height;
 @property(nonatomic,retain)NSString*imageUrlString;
 @property(nonatomic,retain)NSString*introduction;
+@property(nonatomic,retain)UIImage*image;
 
 
 +(ImageInfo*)fakeImageInfo:(NSInteger)imageIndex;
++(ImageInfo*)imageInfoFromImage:(UIImage*)image;
 @end

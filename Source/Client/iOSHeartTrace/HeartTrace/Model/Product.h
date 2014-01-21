@@ -22,4 +22,5 @@
 @property(nonatomic,retain)Organization*organization;
 
 +(Product*)fakeProduct:(NSInteger)productIndex;
+
 @end

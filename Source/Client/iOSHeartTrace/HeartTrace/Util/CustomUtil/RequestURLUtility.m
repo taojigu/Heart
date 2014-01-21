@@ -15,4 +15,15 @@
     return @"http://www.163.com";
 }
 
++(NSString*)productRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
+    return @"http://www.163.com";
+}
++(NSString*)organizationRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
+    return @"http://www.163.com";
+
+}
++(NSString*)searchProductRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
+    return @"http://www.163.com";
+}
+
 @end

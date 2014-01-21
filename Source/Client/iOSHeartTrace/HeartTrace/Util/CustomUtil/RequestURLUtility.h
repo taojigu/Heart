@@ -11,4 +11,7 @@
 @interface RequestURLUtility : NSObject
 
 +(NSString*)wishRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(NSString*)productRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(NSString*)organizationRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(NSString*)searchProductRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
 @end

@@ -13,7 +13,7 @@
 #import "DefaultValueConfigure.h"
 #import "IntroductionViewController.h"
 #import "WishWallTableViewController.h"
-#import "BrowseViewController.h"
+#import "BrowseTableViewController.h"
 #import "AccoutViewController.h"
 
 #define UpdatedText @"Updated"
@@ -136,7 +136,7 @@
     [resultArray addObject:wishNavi];
     [wishNavi release];
     
-    BrowseViewController*bwvc=[[BrowseViewController alloc]init];
+    BrowseTableViewController*bwvc=[[BrowseTableViewController alloc]initWithStyle:UITableViewStylePlain];
     UINavigationController*browseNavi=[[UINavigationController alloc]initWithRootViewController:bwvc];
     [bwvc release];
     [resultArray addObject:browseNavi];

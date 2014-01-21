@@ -7,17 +7,19 @@
 //
 
 #import "AddWishViewController.h"
-#import "BrowseViewController.h"
+#import "BrowseTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
-//#import "ImageCollectionViewController.h"
 #import "ImageNameConst.h"
 #import "QBImagePickerController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "ModelHeader.h"
+#import "ProductDelegate.h"
+#import "BrowseTableViewController.h"
 
 #define MaxImageAmount 9
 
-#define ImageFromAlbumIndex 1
-#define ImageFromCameraIndex 2
+#define ImageFromAlbumIndex 0
+#define ImageFromCameraIndex 1
 
 #define  ImageCellIdentifer @"ImageCellIdentifer"
 
@@ -36,7 +38,7 @@
 
 
 
-@interface AddWishViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,QBImagePickerControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>{
+@interface AddWishViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,QBImagePickerControllerDelegate,ProductDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>{
     @private
     IBOutlet UIScrollView*scrollView;
     IBOutlet UITableViewCell*cellSelectProduct;
@@ -47,6 +49,7 @@
     UICollectionView*imageCollectionView;
     
     CGFloat subViewWidth;
+    Product*product;
     
 
 }
@@ -381,7 +384,7 @@
 }
 
 -(void)promoteImageActionSheet{
-    UIActionSheet*sheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Destructive", nil) otherButtonTitles:NSLocalizedString(@"ImageFromCamera", nil),NSLocalizedString(@"ImageFromAlbum", nil) , nil];
+    UIActionSheet*sheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ImageFromCamera", nil),NSLocalizedString(@"ImageFromAlbum", nil) , nil];
     sheet.actionSheetStyle=UIActionSheetStyleDefault;
     //sheet.destructiveButtonIndex=3;
     [sheet showInView:self.view];
@@ -392,14 +395,33 @@
 #pragma mark -- selector messages
 -(void)cellProductTapped:(UITapGestureRecognizer*)recognizer{
     cellSelectProduct.selected=YES;
-    BrowseViewController*brvc=[[BrowseViewController alloc]init];
+    BrowseTableViewController*brvc=[[BrowseTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    brvc.delegate=self;
+    brvc.scope=BrowseScopeProduct;
     [self.navigationController pushViewController:brvc animated:YES];
     [brvc release];
     cellSelectProduct.selected=NO;
 }
 
 -(void)submitButtonClicked:(id)sender{
+    
+    Wish*wish=[[Wish alloc]init];
+    NSMutableArray*imageInfoArray=[[NSMutableArray alloc]init];
+    for (UIImage *image in imageArray) {
+        ImageInfo*inf=[ImageInfo imageInfoFromImage:image];
+        [imageInfoArray addObject:inf];
+    }
+    wish.imageInfoArray=imageInfoArray;
+    wish.text=wishTextView.text;
+    wish.product=product;
+    wish.title=@"TestTitle";
+    
+    [self submitWish:wish];
+    
     NSLog(@"Submit wishs");
+}
+-(void)submitWish:(Wish*)wish{
+    NSLog(@"Start submit wish");
 }
 
 @end

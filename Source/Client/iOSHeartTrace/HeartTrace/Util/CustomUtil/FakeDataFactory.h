@@ -13,5 +13,7 @@
 @interface FakeDataFactory : NSObject
 
 +(ElementsContainer*)fakeWishPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(ElementsContainer*)fakeProductPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(ElementsContainer*)fakeOrganizationPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
 
 @end
