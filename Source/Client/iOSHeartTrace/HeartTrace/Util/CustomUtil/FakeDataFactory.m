@@ -25,6 +25,7 @@
 }
 +(ElementsContainer*)fakeProductPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
     ElementsContainer*result=[[[ElementsContainer alloc]init]autorelease];
+    result.count=pageSize;
     result.pageIndex=pageIndex;
     result.pageSize=pageSize;
     for (NSInteger indx=pageSize*pageIndex; indx<pageSize*(pageIndex+1); indx++) {

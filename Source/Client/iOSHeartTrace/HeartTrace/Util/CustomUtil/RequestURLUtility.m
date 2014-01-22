@@ -25,5 +25,8 @@
 +(NSString*)searchProductRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize{
     return @"http://www.163.com";
 }
++(NSString*)shakeProductUrl{
+    return @"http://www.163.com";
+}
 
 @end

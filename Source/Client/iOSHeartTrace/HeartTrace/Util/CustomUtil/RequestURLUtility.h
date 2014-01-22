@@ -14,4 +14,5 @@
 +(NSString*)productRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
 +(NSString*)organizationRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
 +(NSString*)searchProductRequestURLString:(NSInteger)pageIndex pageSize:(NSInteger)pageSize;
++(NSString*)shakeProductUrl;
 @end

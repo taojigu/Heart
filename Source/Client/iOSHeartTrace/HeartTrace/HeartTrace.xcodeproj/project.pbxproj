@@ -18,6 +18,8 @@
 		CE128353186D5BF5000D9A2A /* WishPageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128352186D5BF5000D9A2A /* WishPageParser.m */; };
 		CE128358186D6F77000D9A2A /* WishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE128357186D6F77000D9A2A /* WishTableViewCell.m */; };
 		CE12835B186D74FF000D9A2A /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12835A186D74FF000D9A2A /* ViewUtility.m */; };
+		CE279DBB188FBF4300CA2E9F /* ShakeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE279DB9188FBF4200CA2E9F /* ShakeResultViewController.m */; };
+		CE279DBC188FBF4300CA2E9F /* ShakeResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE279DBA188FBF4200CA2E9F /* ShakeResultViewController.xib */; };
 		CE6E2416187BE1EB001672E6 /* profile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE6E2418187BE1EB001672E6 /* profile.jpeg */; };
 		CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EAEA218867A4400ACE7A5 /* ImageCollectionViewCell.xib */; };
 		CEA1BC611864490E00C659DA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1BC601864490E00C659DA /* libxml2.dylib */; };
@@ -138,6 +140,9 @@
 		CE128357186D6F77000D9A2A /* WishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewCell.m; path = View/Cell/WishTableViewCell.m; sourceTree = "<group>"; };
 		CE128359186D74FF000D9A2A /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewUtility.h; path = Util/CustomUtil/ViewUtility.h; sourceTree = "<group>"; };
 		CE12835A186D74FF000D9A2A /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtility.m; path = Util/CustomUtil/ViewUtility.m; sourceTree = "<group>"; };
+		CE279DB8188FBF4200CA2E9F /* ShakeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakeResultViewController.h; path = ViewController/ShakeResultViewController.h; sourceTree = "<group>"; };
+		CE279DB9188FBF4200CA2E9F /* ShakeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeResultViewController.m; path = ViewController/ShakeResultViewController.m; sourceTree = "<group>"; };
+		CE279DBA188FBF4200CA2E9F /* ShakeResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShakeResultViewController.xib; path = ViewController/ShakeResultViewController.xib; sourceTree = "<group>"; };
 		CE6E2417187BE1EB001672E6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "zh-Hans"; path = "zh-Hans.lproj/profile.jpeg"; sourceTree = "<group>"; };
 		CE6E2419187BE232001672E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = en; path = en.lproj/profile.jpeg; sourceTree = "<group>"; };
 		CE6E241A187BE337001672E6 /* ImageNameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageNameConst.h; path = Configure/ImageNameConst.h; sourceTree = "<group>"; };
@@ -413,6 +418,9 @@
 		CEA1BC71186461C700C659DA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE279DB8188FBF4200CA2E9F /* ShakeResultViewController.h */,
+				CE279DB9188FBF4200CA2E9F /* ShakeResultViewController.m */,
+				CE279DBA188FBF4200CA2E9F /* ShakeResultViewController.xib */,
 				CEB4637E18680EC900452BD2 /* IntroductionViewController.h */,
 				CEB4637F18680EC900452BD2 /* IntroductionViewController.m */,
 				CEB4638018680EC900452BD2 /* IntroductionViewController.xib */,
@@ -840,6 +848,7 @@
 				CE6EAEA318867A4400ACE7A5 /* ImageCollectionViewCell.xib in Resources */,
 				CEF524E218877A7F0063E830 /* QBImagePickerController.bundle in Resources */,
 				CEEEAF4A188D12BA00F288E7 /* BrowseTableViewController.xib in Resources */,
+				CE279DBC188FBF4300CA2E9F /* ShakeResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +951,7 @@
 				CEEEAF52188E511B00F288E7 /* ASIHTTPRequest+RequestIdentify.m in Sources */,
 				CEEEAF56188E560100F288E7 /* ProductPageParser.m in Sources */,
 				CEEEAF59188E561B00F288E7 /* OrganizationPageParser.m in Sources */,
+				CE279DBB188FBF4300CA2E9F /* ShakeResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

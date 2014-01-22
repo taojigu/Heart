@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class Product;
 @protocol ProductDelegate <NSObject>
 
-
+-(void)productDidSelected:(id)sender product:(Product*)product;
 
 @end

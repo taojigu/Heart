@@ -13,7 +13,8 @@
 #import "ASIHTTPRequest+RequestIdentify.h"
 #import "ProductPageParser.h"
 #import "OrganizationPageParser.h"
-
+#import "ProductDelegate.h"
+#import "ShakeResultViewController.h"
 
 #define ProductIndex 0
 #define OrganizationIndex 1
@@ -21,11 +22,13 @@
 #define SearchRequestTag 0
 #define ProductRequestTag 1
 #define OrganizationRequestTag 2
+#define ShakeRequestResultTag 3
 
 
 @interface BrowseTableViewController ()<ASIHTTPRequestDelegate,UISearchBarDelegate>{
     @private
     IBOutlet UISearchBar*searchBar;
+    IBOutlet UIView*headerView;
     UISegmentedControl*segmentControl;    
 }
 
@@ -36,6 +39,8 @@
 
 -(void)initSegmentControl;
 -(void)initSearchBar;
+-(void)startShakeRequest;
+
 
 @end
 
@@ -55,6 +60,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title=NSLocalizedString(@"BrowseTitle", nil);
         self.scope=BrowseScopeAll;
         ElementsContainer*tmpContainer=[[ElementsContainer alloc]init];
         self.productContainer=tmpContainer;
@@ -76,17 +82,35 @@
      
     [self startDownloadProduct:0];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self becomeFirstResponder];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self resignFirstResponder];
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if (UIEventSubtypeMotionShake!=motion||self.scope!=BrowseScopeProduct) {
+        return;
+    }
+    NSLog(@"Shake Finished");
+    [self startShakeRequest];
 }
 
 
@@ -184,7 +208,7 @@
 
 #pragma -- AsiHttpRequestDelegate message
 -(void)requestStarted:(ASIHTTPRequest *)request{
-    NSLog(@"Start download Product or Organization");
+    NSLog(@"Start Request %@",request.requestName);
    
 }
 
@@ -192,6 +216,11 @@
     NSLog(@"Request %@ failed",request.requestName);
 }
 -(void)requestFinished:(ASIHTTPRequest *)request{
+    
+    if(ShakeRequestResultTag==request.tag){
+        [self processShakeResultRequest:request];
+        return;
+    }
     ElementsContainer*resultPage=nil;
     ElementsContainer*bufferContainer=nil;
     if (ProductRequestTag==request.tag) {
@@ -245,6 +274,11 @@
     }
     [self.tableView reloadData];
 }
+
+-(void)selectProduct:(id)sender{
+    [self onProductSelected];
+
+}
 #pragma mark -- private messages
 
 -(void)startDownloadOrganization:(NSInteger)pageIndex{
@@ -277,10 +311,22 @@
 -(void)initSubviews{
     [self initSegmentControl];
     [self initSearchBar];
+    if (BrowseScopeProduct==self.scope) {
+        UIBarButtonItem*confirmButton=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(selectProduct:)];
+        self.navigationItem.rightBarButtonItem=confirmButton;
+        [confirmButton release];
+        
+    }
     
 }
 
 -(void)initSegmentControl{
+    
+    if (BrowseScopeAll!=self.scope) {
+        
+        return;
+    }
+    
     NSArray*itemArray=nil;
     switch (self.scope) {   
         case BrowseScopeProduct:
@@ -296,6 +342,7 @@
             NSAssert(NO, @"Invalidate Browse Scope");
             break;
     }
+    
     segmentControl=[[UISegmentedControl alloc]initWithItems:itemArray];
     segmentControl.momentary=NO;
     segmentControl.selectedSegmentIndex=0;
@@ -304,17 +351,17 @@
     [segmentControl addTarget:self action:@selector(segmentIndexChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView=segmentControl;
     
-    
 }
 -(void)initSearchBar{
-    
     self.tableView.tableHeaderView=searchBar;
-    
+    if (BrowseScopeProduct==self.scope) {
+        searchBar.placeholder=NSLocalizedString(@"WaveSelectProduct", nil);
+    }
 }
 
 -(UITableViewCell*)productTableViewCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     static NSString *CellIdentifier = @"ProductCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
@@ -328,7 +375,7 @@
 }
 -(UITableViewCell*)organizationTableViewCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     static NSString *CellIdentifier = @"OrganizationCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
@@ -340,6 +387,37 @@
     
     return cell;
 }
-
+-(void)onProductSelected{
+    NSAssert(self.productContainer.count>0, @"NO Product Available");
+    NSIndexPath*indexPath=self.tableView.indexPathForSelectedRow;
+    Product*prt=[self.productContainer.elementArray objectAtIndex:indexPath.row];
+    if(self.delegate!=nil&&[self.delegate respondsToSelector:@selector(productDidSelected:product:)]){
+        [self.delegate productDidSelected:self product:prt];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)startShakeRequest{
+    NSString*urlString=[RequestURLUtility shakeProductUrl];
+    ASIHTTPRequest*request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlString]];
+    request.tag=ShakeRequestResultTag;
+    request.requestName=@"ShakeForProduct";
+    request.delegate=self;
+    [request startAsynchronous];
+}
+-(void)processShakeResultRequest:(ASIHTTPRequest*)request{
+    NSAssert(request.tag==ShakeRequestResultTag, @"Not Shake Request Result");
+    ProductPageParser*parser=[[ProductPageParser alloc]init];
+    ElementsContainer*result=[parser parse:request.responseData];
+    [parser release];
+    if (result.count!=0) {
+        ShakeResultViewController*srvc=[[ShakeResultViewController alloc]init];
+        [self.navigationController pushViewController:srvc animated:YES];
+        [srvc release];
+    }
+    else{
+        NSString*msg=NSLocalizedString(@"FailedToShakeResult", nil);
+        NSLog(@"%@",msg);
+    }
+}
 
 @end

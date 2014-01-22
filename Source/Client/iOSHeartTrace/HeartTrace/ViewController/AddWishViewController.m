@@ -21,6 +21,10 @@
 #define ImageFromAlbumIndex 0
 #define ImageFromCameraIndex 1
 
+
+#define NameLabelTag 101
+#define PriceLabelTag 102
+
 #define  ImageCellIdentifer @"ImageCellIdentifer"
 
 
@@ -38,7 +42,7 @@
 
 
 
-@interface AddWishViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,QBImagePickerControllerDelegate,ProductDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>{
+@interface AddWishViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,QBImagePickerControllerDelegate,ProductDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,ProductDelegate>{
     @private
     IBOutlet UIScrollView*scrollView;
     IBOutlet UITableViewCell*cellSelectProduct;
@@ -49,7 +53,7 @@
     UICollectionView*imageCollectionView;
     
     CGFloat subViewWidth;
-    Product*product;
+    Product*wishProduct;
     
 
 }
@@ -218,19 +222,6 @@
     }
    
 }
-/*
--(void)initImageCollectionViewController{
-    UICollectionViewFlowLayout*imageLayout=[[UICollectionViewFlowLayout alloc]init];
-    imageLayout.itemSize=CGSizeMake(CollectionViewCellLength,CollectionViewCellLength);
-    imageLayout.minimumInteritemSpacing=CollectionViewImageMargin;
-    imageLayout.minimumLineSpacing=CollectionViewImageMargin;
-    imageLayout.sectionInset=UIEdgeInsetsMake(CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin, CollectionViewImageMargin);
-    imageCollecitonViewController=[[ImageCollectionViewController alloc]initWithCollectionViewLayout:imageLayout];
-    imageCollecitonViewController.addCellImage=[UIImage imageNamed:ProfileHeaderJpeg];
-    imageCollecitonViewController.mainViewController=self;
-    [imageLayout release];
-     [scrollView addSubview:imageCollecitonViewController.view];
-}*/
 
 -(void)initImageCollectionView{
     UICollectionViewFlowLayout*imageLayout=[[UICollectionViewFlowLayout alloc]init];
@@ -354,7 +345,18 @@
             break;
     }
 }
+#pragma -- mark ProductDelegate messages
 
+-(void)productDidSelected:(id)sender product:(Product *)product{
+    
+    NSAssert(nil!=product, @"Product should not be nil");
+    wishProduct=product;
+    UILabel*nameLabel=(UILabel*)[cellSelectProduct viewWithTag:NameLabelTag];
+    nameLabel.text=product.name;
+    UILabel*priceLabel=(UILabel*)[cellSelectProduct viewWithTag:PriceLabelTag];
+    priceLabel.text=[NSString stringWithFormat:@"价格：%f",product.price];
+
+}
 
 
 #pragma mark -- private messages
@@ -391,7 +393,6 @@
 }
 
 
-
 #pragma mark -- selector messages
 -(void)cellProductTapped:(UITapGestureRecognizer*)recognizer{
     cellSelectProduct.selected=YES;
@@ -413,7 +414,7 @@
     }
     wish.imageInfoArray=imageInfoArray;
     wish.text=wishTextView.text;
-    wish.product=product;
+    wish.product=wishProduct;
     wish.title=@"TestTitle";
     
     [self submitWish:wish];
